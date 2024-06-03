@@ -2,6 +2,7 @@ import react from "../../assets/react.svg";
 import tailwind from "../../assets/tailwind.svg";
 import js from "../../assets/js.svg";
 import vite from "../../assets/vite.svg";
+import charmander from "../../assets/charmander.png";
 
 
 export const HeroSection = () => {
@@ -10,31 +11,31 @@ export const HeroSection = () => {
             <div className="flex justify-between h-full w-full p-8">
                 <div className="h-full flex">
                     <div className="flex gap-4 items-center">
-                        
-                        <div className="flex ">
-                            <div className="w-28 h-40 bg-black rounded-3xl mb-32">
 
+                        <div className="flex ">
+                            <div className="w-28 h-40 rounded-3xl mb-32">
+                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
                             </div>
                         </div>
                         <div className="flex flex-col mb-64">
                             <div className="w-28 h-40 bg-black rounded-3xl mb-4">
-
+                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
                             </div>
                             <div className="w-28 h-40 bg-black rounded-3xl">
-
+                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
                             </div>
                         </div>
                         <div className="flex flex-col justify-center">
                             <div className="w-28 h-40 bg-black rounded-3xl mb-4">
-
+                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
                             </div>
                             <div className="w-28 h-40 bg-black rounded-3xl">
-
+                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
                             </div>
                         </div>
                         <div className="flex items-center">
                             <div className="w-28 h-40 bg-black rounded-3xl ">
-
+                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
                             </div>
                         </div>
                     </div>
@@ -47,10 +48,10 @@ export const HeroSection = () => {
                         <p className="font-inconsolata text-gray-0 text-sizeParagraph text-s">Codifique o seu futuro hoje!</p>
                     </div>
                     <div className="flex gap-4 mt-8">
-                        <img src={react}/>
-                        <img src={vite}/>
-                        <img src={js}/>
-                        <img src={tailwind}/>
+                        <img src={react} />
+                        <img src={vite} />
+                        <img src={js} />
+                        <img src={tailwind} />
                     </div>
 
                 </div>
