@@ -7,51 +7,53 @@ import charmander from "../../assets/charmander.png";
 
 export const HeroSection = () => {
     return (
-        <section className="w-full h-screen max-w-5xl mx-auto my-auto bg-blue-900">
-            <div className="flex justify-between h-full w-full p-8">
-                <div className="h-full flex">
-                    <div className="flex gap-4 items-center">
-
-                        <div className="flex ">
-                            <div className="w-28 h-40 rounded-3xl mb-32">
-                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
+        <section className=" w-full h-screen mx-auto my-auto sm:max-w-md md:max-w-3xl lg:max-w-5xl">
+            <div className="flex flex-col-reverse items-center p-8 gap-8 md:flex-row md:justify-between">
+                <div className="h-full flex md:justify-center">
+                    <div className="flex items-center gap-2 lg:gap-4">
+                        <div className="flex">
+                            <div className="w-16 h-20 rounded-2xl mb-12 md:w-20 md:h-28 md:mb-34">
+                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
                             </div>
                         </div>
-                        <div className="flex flex-col mb-64">
-                            <div className="w-28 h-40 bg-black rounded-3xl mb-4">
-                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
+                        <div className="flex flex-col mb-16 md:mb-30">
+                            <div className="w-16 h-20 md:w-20 md:h-28 bg-black rounded-2xl mb-4">
+                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
                             </div>
-                            <div className="w-28 h-40 bg-black rounded-3xl">
-                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
-                            </div>
-                        </div>
-                        <div className="flex flex-col justify-center">
-                            <div className="w-28 h-40 bg-black rounded-3xl mb-4">
-                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
-                            </div>
-                            <div className="w-28 h-40 bg-black rounded-3xl">
-                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
+                            <div className="w-16 h-20 md:w-20 md:h-28 bg-black rounded-2xl">
+                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
                             </div>
                         </div>
-                        <div className="flex items-center">
-                            <div className="w-28 h-40 bg-black rounded-3xl ">
-                                <img src={charmander} alt="" className="w-full h-full rounded-3xl" />
+                        <div className="flex flex-col justify-center ">
+                            <div className="w-16 h-20 md:w-20 md:h-28 bg-black rounded-2xl mb-4">
+                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
+                            </div>
+                            <div className="w-16 h-20 md:w-20 md:h-28 bg-black rounded-2xl">
+                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
+                            </div>
+                        </div>
+                        <div className="flex items-center mb-8">
+                            <div className="w-16 h-20 md:w-20 md:h-28 bg-black rounded-2xl ">
+                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div className="flex flex-col justify-center items-end">
-                    <div className="flex flex-col justify-center items-end">
-                        <p className="font-inconsolata text-gray-0  text-sizeParagraph font-medium">projeto</p>
-                        <h2 className="font-zen text-sizeTitle font-normal text-white">Frontend Fusion</h2>
-                        <p className="font-inconsolata text-gray-0 text-sizeParagraph text-s">Codifique o seu futuro hoje!</p>
+                <div className="flex flex-col justify-center md:gap-4">
+                    <div className="flex flex-col justify-center items-center md:items-end">
+                        <p className="font-inconsolata text-gray-0 font-medium text-lg lg:text-sizeParagraph">projeto</p>
+                        <h2 className="font-zen font-normal text-white text-3xl lg:text-sizeTitle ">Frontend Fusion</h2>
+                        <p className="font-inconsolata text-gray-0 text-lg lg:text-sizeParagraph">Codifique o seu futuro hoje!</p>
                     </div>
-                    <div className="flex gap-4 mt-8">
-                        <img src={react} />
-                        <img src={vite} />
-                        <img src={js} />
-                        <img src={tailwind} />
+                    
+                    <div className="flex justify-end">
+                        <div className="flex mt-8 gap-12 md:gap-4">
+                            <img src={react} />
+                            <img src={vite} />
+                            <img src={js} />
+                            <img src={tailwind} />
+                        </div>
                     </div>
 
                 </div>
