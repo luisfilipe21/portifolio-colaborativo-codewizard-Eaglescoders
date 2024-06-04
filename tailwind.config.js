@@ -5,15 +5,18 @@ export default {
     extend: {
       fontFamily: {
         zen: ["Zen Dots", "sans-serif"],
-        inconsolata: ["Inconsolata"],
+        inconsolata: ["Inconsolata", "sans-serif"],
+        mulish: ["Mulish", "sans-serif"],
       },
-      textColor:{
+      textColor: {
         gray: ["#B5B3BC"],
       },
-      backgroundColor:{
-        blueBg:["#221C3E"],
+      backgroundColor: {
+        blueBg: ["#0F0920"],
+        rodape: ["#221C3E"],
+        button: ["#0368FF"],
       },
-      fontSize:{
+      fontSize: {
         sizeParagraph: ["24px"],
         sizeParagraphSm: ["18px"],
         sizeTitle: ["38px"],
