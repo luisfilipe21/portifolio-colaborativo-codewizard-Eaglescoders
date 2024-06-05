@@ -4,8 +4,9 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        zen: ["Zen Dots", "sans-serif"],
-        inconsolata: ["Inconsolata"],
+        "zen": ["Zen Dots", "sans-serif"],
+        "inconsolata": ["Inconsolata"],
+        "mulish": ["Mulish", "sans-serif"]
       },
       textColor:{
         gray: ["#B5B3BC"],
