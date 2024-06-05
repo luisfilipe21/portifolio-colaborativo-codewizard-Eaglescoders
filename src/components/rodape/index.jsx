@@ -3,7 +3,7 @@ import charmander from "../../assets/charmander.png";
 
 export const Footer = () => {
     return (
-        <footer className="bg-rodape-0 rounded-t-3xl">
+        <footer className="bg-rodape-0 w-full rounded-t-3xl">
             <div className="flex p-8 justify-between">
 
                 <div className="flex flex-col md:flex-row md:mr-4">
@@ -19,9 +19,9 @@ export const Footer = () => {
                     </div>
                 </div>
 
-                <div className="flex md:w-full">
-                    <div className="flex w-24 h-max flex-wrap box-border md:flex-nowrap">
-                        <div className="flex items-center h-12">
+                <div className="flex w-24 md:w-full md:justify-end">
+                    <div className="flex h-max box-border md:flex-col gap-8">
+                        <div className="flex flex-wrap items-center h-12 md:flex-nowrap">
                             <img src={charmander} alt="Membro da equipe" className="w-12 rounded-full md:z-50" />
                             <img src={charmander} alt="Membro da equipe" className="w-12 rounded-full md:z-40" />
                             <img src={charmander} alt="Membro da equipe" className="w-12 rounded-full md:z-30" />
@@ -30,7 +30,7 @@ export const Footer = () => {
                             <img src={charmander} alt="Membro da equipe" className="w-12 rounded-full md:z-0" />
                         </div>
 
-                        <div className="hidden md:inline-flex md:flex-col bg-red-600 md:w-full">
+                        <div className="hidden md:inline-flex md:flex-col md:w-full gap-0.5">
                             <p className="font-mulish text-white text-xs">Nome dos participantes</p>
                             <p className="font-mulish text-white text-xs">Nome dos participantes</p>
                             <p className="font-mulish text-white text-xs">Nome dos participantes</p>
