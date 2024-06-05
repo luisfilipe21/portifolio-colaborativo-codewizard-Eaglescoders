@@ -58,7 +58,6 @@ export const HeroSection = () => {
                                 <img src={tailwind} />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

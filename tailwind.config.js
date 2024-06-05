@@ -14,6 +14,7 @@ export default {
       backgroundColor: {
         blueBg: ["#0F0920"],
         rodape: ["#221C3E"],
+        buttonHeader: ["#16C586"],
         button: ["#0368FF"],
       },
       fontSize: {
@@ -24,6 +25,11 @@ export default {
       },
       screens: {
         xs: ["360px"]
+      },
+      spacing:{
+        pNegativo: {
+          "as" : "-15px"
+        }
       }
     },
   },
