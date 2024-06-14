@@ -58,6 +58,10 @@ export default {
         "mobile-hiper": "2.196rem",
       },
       fontSize: {
+        sizeParagraph: ["24px"],
+        sizeParagraphSm: ["18px"],
+        sizeTitle: ["38px"],
+        sizeTitleSm: ["38px"],
         "desktop-mini": "0.75rem",
         "desktop-extraMini": "0.938rem",
         "desktop-small": "1rem",
@@ -111,6 +115,11 @@ export default {
       gap: {
         small: "1.063rem",
       },
+      spacing:{
+        pNegativo: {
+          "as" : "-15px"
+        }
+      }
     },
   },
   plugins: [],
