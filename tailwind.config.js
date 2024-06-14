@@ -4,17 +4,20 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        "zen": ["Zen Dots", "sans-serif"],
-        "inconsolata": ["Inconsolata"],
-        "mulish": ["Mulish", "sans-serif"]
+        zen: ["Zen Dots", "sans-serif"],
+        inconsolata: ["Inconsolata", "sans-serif"],
+        mulish: ["Mulish", "sans-serif"],
       },
-      textColor:{
+      textColor: {
         gray: ["#B5B3BC"],
       },
-      backgroundColor:{
-        blueBg:["#221C3E"],
+      backgroundColor: {
+        blueBg: ["#0F0920"],
+        rodape: ["#221C3E"],
+        buttonHeader: ["#16C586"],
+        button: ["#0368FF"],
       },
-      fontSize:{
+      fontSize: {
         sizeParagraph: ["24px"],
         sizeParagraphSm: ["18px"],
         sizeTitle: ["38px"],
@@ -22,6 +25,11 @@ export default {
       },
       screens: {
         xs: ["360px"]
+      },
+      spacing:{
+        pNegativo: {
+          "as" : "-15px"
+        }
       }
     },
   },
