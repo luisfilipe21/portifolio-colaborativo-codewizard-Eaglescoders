@@ -51,12 +51,12 @@ export const HeroSection = () => {
                         </div>
 
                         <div className="flex justify-end">
-                            <div className="flex mt-8 gap-12 md:gap-4">
+                            <figure className="flex mt-8 gap-12 md:gap-4">
                                 <img src={react} />
                                 <img src={vite} />
                                 <img src={js} />
                                 <img src={tailwind} />
-                            </div>
+                            </figure>
                         </div>
                     </div>
                 </div>
