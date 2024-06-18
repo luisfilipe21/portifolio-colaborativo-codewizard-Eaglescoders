@@ -10,6 +10,7 @@ export default {
       },
       textColor: {
         gray: ["#B5B3BC"],
+        nameMember: ["#03FCFC"]
       },
       backgroundColor: {
         blueBg: ["#0F0920"],
