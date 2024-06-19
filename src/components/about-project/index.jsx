@@ -1,19 +1,8 @@
 import { SectionAbout } from "./section-about";
 
-export type SectionProrps = {
-  title: string;
-  content: string;
-  imgSrc: string;
-}
-
-type AboutProjectProps = {
-  title: string;
-  description: string;
-  sections: SectionProrps[];
-}
 
 export function AboutProject(){
-    const projectDetails: AboutProjectProps = {
+    const projectDetails = {
         title: "Sobre o Projeto Frontend Fusion",
         description: `O Frontend Fusion é um projeto inovador focado em proporcionar uma experiência envolvente de aprendizado de programação. 
           Nosso objetivo é oferecer um ambiente colaborativo onde entusiastas de tecnologia possam mergulhar no mundo do desenvolvimento 

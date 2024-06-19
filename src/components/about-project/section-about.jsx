@@ -1,6 +1,4 @@
-import { SectionProrps } from ".";
-
-export function SectionAbout({ content, imgSrc, title }: SectionProrps){
+export function SectionAbout({ content, imgSrc, title }){
     return (
         <div className="w-full h-auto md:h-48 flex flex-col md:flex-row items-start md:items-center gap-8 bg-[#221C3E] rounded-lg px-[42px] py-8 md:py-0">
             <div className="h-full flex items-start md:items-center justify-start md:justify-center">
