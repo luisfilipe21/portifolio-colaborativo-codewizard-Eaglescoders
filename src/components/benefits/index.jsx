@@ -1,77 +1,32 @@
+import Card from "./card";
+import benefitCard from "../../data/benefits.json";
+
 const Benefits = () => {
   return (
-    <section className="">
-      <div className="">
-        <h2 className="">
-          Vantagens do <br /> Projeto
-        </h2>
+    <section className="w-full bg-purple-1">
+      <div className="flex flex-wrap px-4 justify-around gap-4 w-full mx-auto md:justify-between md:max-w-medium lg:max-w-larger lg:px-0 lg:justify-center ">
+        <div className="max-w-sm   pr-8">
+          <h2 className="font-black text-purple-1 dark:text-gray-2 border-purple-1 dark:border-purple-3 leading-mobile-ultra pb-4 mb-2 border-x-0 border-t-0 border-solid border-2 text-desktop-extraMedium font-inconsolata lg:text-desktop-extraUltra lg:leading-desktop-ultra lg:pb-8 lg:mb-8">
+            Vantagens do <br /> Projeto
+          </h2>
 
-        <p className="">
-          Participar de um projeto em grupo para aprender programação web
-          frontend e desenvolver um portfólio colaborativo oferece uma série de
-          vantagens!
-        </p>
-      </div>
+          <p className="text-xs font-normal leading-mobile-mini text-black-1 dark:text-gray-1 font-mulish lg:text-lg lg:leading-desktop-larger">
+            Participar de um projeto em grupo para aprender programação web
+            frontend e desenvolver um portfólio colaborativo oferece uma série
+            de vantagens!
+          </p>
+        </div>
 
-      <div className="">
-        <h2 className="">
-          <img src="" alt="" className="" />
-          Diversidade de habilidades:
-        </h2>
-        <p className="">
-          Ao trabalhar em equipe, você pode aprender com os outros membros do
-          grupo. Cada pessoa traz suas habilidades e conhecimentos únicos,
-          permitindo trocas constantes de aprendizado e a oportunidade de
-          explorar diferentes abordagens para resolver problemas.
-        </p>
-      </div>
-
-      <div className="">
-        <h2 className="">
-          <img src="" alt="" className="" />
-          Divisão de tarefas:
-        </h2>
-        <p className="">
-          Trabalhar em equipe permite distribuir o trabalho de forma eficiente,
-          acelerando o progresso e permitindo que cada membro se concentre em
-          suas áreas de especialização.
-        </p>
-      </div>
-      <div className="">
-        <h2 className="">
-          <img src="" alt="" className="" />
-          Aprendizado colaborativo:
-        </h2>
-        <p className="">
-          Ao trabalhar em equipe, você pode aprender com os outros membros do
-          grupo. Cada pessoa traz suas habilidades e conhecimentos únicos,
-          permitindo trocas constantes de aprendizado e a oportunidade de
-          explorar diferentes abordagens para resolver problemas.
-        </p>
-      </div>
-      <div className="">
-        <h2 className="">
-          <img src="" alt="" className="" />
-          Diversidade de perspectivas:
-        </h2>
-        <p className="">
-          Trabalhar com pessoas diferentes traz uma variedade de perspectivas e
-          abordagens para resolver problemas. Isso pode levar a soluções mais
-          criativas e inovadoras, já que cada membro do grupo pode contribuir
-          com suas ideias únicas.
-        </p>
-      </div>
-      <div className="">
-        <h2 className="">
-          <img src="" alt="" className="" />
-          Habilidades interpessoais
-        </h2>
-        <p className="">
-          Trabalhar em equipe ajuda a aprimorar habilidades de comunicação,
-          colaboração e trabalho em grupo. Essas habilidades são essenciais no
-          ambiente de trabalho, não apenas na área de programação, mas em muitos
-          outros campos também.
-        </p>
+        {benefitCard.map((card) => {
+          return (
+            <Card
+              key={card.title}
+              title={card.title}
+              text={card.text}
+              icon={card.icon}
+            />
+          );
+        })}
       </div>
     </section>
   );
