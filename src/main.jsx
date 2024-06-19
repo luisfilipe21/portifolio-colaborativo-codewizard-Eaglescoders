@@ -5,6 +5,7 @@ import { HeroSection } from "./components/hero";
 import { Footer } from "./components/rodape";
 import { AboutProject } from "./components/about-project";
 import Benefits from "./components/benefits";
+import Team from "./components/team";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -13,7 +14,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <HeroSection />
       <Benefits />
       <span>[Coloque aqui a sesão de tech-and-lang]</span>
-      <span>[Coloque aqui a sesão de team]</span>
+      <Team />
       <AboutProject />
       <span>[Coloque aqui a sesão de coments]</span>
       <Footer />

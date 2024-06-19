@@ -8,6 +8,10 @@ export default {
         inconsolata: ["Inconsolata", "sans-serif"],
         mulish: ["Mulish", "sans-serif"],
       },
+      textColor: {
+        gray: ["#B5B3BC"],
+        nameMember: ["#03FCFC"]
+      },
       colors: {
         purple: {
           1: "#0f0920",
@@ -38,6 +42,7 @@ export default {
           1: "#16c586",
           2: "#0a4c65",
         },
+
       },
       lineHeight: {
         "desktop-mini": "1rem",
