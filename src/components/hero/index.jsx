@@ -32,10 +32,14 @@ export const HeroSection = () => {
                                 <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
                             </div>
                         </div>
-                        <div className="flex items-center mb-8">
-                            <div className="w-16 h-20 md:w-20 md:h-28 bg-black rounded-2xl ">
-                                <img src={charmander} alt="" className="w-full h-full rounded-2xl" />
-                            </div>
+
+                        <div className="flex justify-end">
+                            <figure className="flex mt-8 gap-12 md:gap-4">
+                                <img src={react} />
+                                <img src={vite} />
+                                <img src={js} />
+                                <img src={tailwind} />
+                            </figure>
                         </div>
                     </div>
                 </div>
