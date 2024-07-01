@@ -8,11 +8,11 @@ export const Footer = () => {
 
                 <div className="flex flex-col md:flex-row md:mr-4">
                     <div>
-                        <button className="bg-button-0 w-36 flex items-center text-white gap-1 justify-center p-4 rounded-lg font-inconsolata text-xl">
+                        <button className="bg-blue-1 text-white-1 w-36 flex items-center text-white gap-1 justify-center p-4 rounded-lg font-inconsolata text-xl">
                             github <img src={github} alt="Membro da equipegithub" />
                         </button>
                     </div>
-                    <div className="flex flex-col my-4 gap-8 md:flex-row md:pl-4">
+                    <div className="flex flex-col my-4 gap-8 md:flex-row md:pl-4 text-white-1">
                         <nav >
                             <ul className="flex flex-col my-4 gap-8 md:flex-row md:pl-4">
                                 <li>
@@ -54,7 +54,9 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p className="text-center text-xs text-white font-mulish pb-8 md:text-left md:ml-8">Projeto Frontendfusion - Todos os direitos reservados</p>
+            <p className="text-center text-xs text-white font-mulish pb-8 md:text-left md:ml-8 text-white-1">
+                Projeto Frontendfusion - Todos os direitos reservados
+                </p>
         </footer>
     )
 }

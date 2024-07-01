@@ -7,12 +7,14 @@ import { AboutProject } from "./components/about-project";
 import Benefits from "./components/benefits";
 import Comments from "./components/coments";
 import Team from "./components/team";
+import { Header } from "./components/cabecalho";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
 
-    <main className="flex flex-col  bg-blueBg-0"> {/* Não mexer aqui por favor! */}
+    <main className="flex flex-col bg-purple-1"> {/* Não mexer aqui por favor! */}
+      <Header />
       <HeroSection />
       <Benefits />
       <span>[Coloque aqui a sesão de tech-and-lang]</span>
