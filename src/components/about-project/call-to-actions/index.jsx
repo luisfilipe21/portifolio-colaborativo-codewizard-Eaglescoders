@@ -6,7 +6,7 @@ export default function CallToActions() {
         a você em nossa comunidade!
       </p>
 
-      <button className="bg-green-1 text-gray-3 font-bold font-mulish text-mobile-larger rounded-lg flex items-center flex justify-center py-6 px-8 h-medium w-small lg:text-desktop-hiper lg:h-24 lg:w-larger lg:rounded-2xl">
+      <button className="bg-green-1 text-gray-3 font-bold font-mulish text-mobile-larger rounded-lg flex items-center flex justify-center py-6 px-8 h-medium w-mini lg:text-desktop-hiper lg:h-24 lg:w-extraMedium lg:rounded-2xl">
         Quero Participar
       </button>
     </section>

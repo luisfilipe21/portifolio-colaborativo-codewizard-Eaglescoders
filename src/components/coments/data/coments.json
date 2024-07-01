@@ -1,0 +1,34 @@
+[
+  {
+    "id": "1",
+    "name": "Linus Torvalds",
+    "function": "criador do linux",
+    "email": "linus@mail.com",
+    "coment": "Vejo um potencial incrível no 'Frontend Fusion'. A colaboração é a essência do avanço tecnológico, e vocês capturaram isso de forma brilhante. Achei inspirador. Recomendo focar na escalabilidade do projeto para garantir que a estrutura possa crescer sem comprometer a qualidade.",
+    "img": "src/assets/linus.png"
+  },
+  {
+    "id": "2",
+    "name": "Tim Berners-Lee",
+    "function": "Inventor da World Wide Web",
+    "email": "tim@mail.com",
+    "coment": "O 'Frontend Fusion' é uma abordagem inovadora para destacar talentos múltiplos em um único espaço. Acredito que enfatizar a acessibilidade e a inclusão pode levar esse projeto a outro nível. Certifiquem-se de que a experiência do usuário seja igualmente enriquecedora para todos.",
+    "img": "src/assets/tim.png"
+  },
+  {
+    "id": "3",
+    "name": "Guido van Rossum",
+    "function": "Criador do Python",
+    "email": "guido@mail.com",
+    "coment": "Vejo um potencial incrível no 'Frontend Fusion'. A colaboração é a essência do avanço tecnológico, e vocês capturaram isso de forma brilhante. Achei inspirador. Recomendo focar na escalabilidade do projeto para garantir que a estrutura possa crescer sem comprometer a qualidade.",
+    "img": "src/assets/guido.png"
+  },
+  {
+    "id": "4",
+    "name": "Linus Torvalds",
+    "function": "criador do linux",
+    "email": "linus@mail.com",
+    "coment": "Vejo um potencial incrível no 'Frontend Fusion'. A colaboração é a essência do avanço tecnológico, e vocês capturaram isso de forma brilhante. Achei inspirador. Recomendo focar na escalabilidade do projeto para garantir que a estrutura possa crescer sem comprometer a qualidade.",
+    "img": "src/assets/linus.png"
+  }
+]
