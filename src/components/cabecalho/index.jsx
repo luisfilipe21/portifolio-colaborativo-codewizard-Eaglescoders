@@ -14,16 +14,16 @@ export const Header = () => {
     }
 
     return (
-        <header className="w-full mx-auto my-auto sm:max-w-md md:max-w-3xl lg:max-w-5xl">
-            <div className="py-6 px-4 flex justify-between items-center md:flex-row-reverse">
+        <header className="w-full max-w-5xl mx-auto my-auto sm:max-w-md md:max-w-3xl lg:max-w-5xl text-gray-0 ">
+            <div className="py-6 px-4 flex justify-between gap-8 items-center md:justify-normal md:gap-16 md:flex-row-reverse">
                 <div className="flex flex-row-reverse gap-8">
-                    <button className="bg-buttonHeader-0 flex text-white p-4 w-36 items-center gap-2 justify-center rounded-lg font-inconsolata text-xl">
+                    <button className="bg-green-1 text-white-1 flex text-white p-4 w-36 items-center gap-2 justify-center rounded-lg font-inconsolata text-xl">
                         github<img src={github}/>
                     </button>
                     <img src={sol} className="hidden md:flex md:justify-end cursor-pointer" />
                 </div>
-                <div className="hidden md:flex">
-                    <ul className="flex gap-8">
+                <div className="hidden md:flex justify-between">
+                    <ul className="flex gap-16">
                         <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Sobre</a></li>
                         <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Equipe</a></li>
                         <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Vantagens</a></li>
@@ -32,8 +32,8 @@ export const Header = () => {
                 </div>
 
                 <div className="flex gap-2 md:hidden">
-                    <img src={sol} className="cursor-pointer:" />
-                    <img src={lista} onClick={open} className="cursor-pointer:"/>
+                    <img src={sol} className="cursor-pointer" />
+                    <img src={lista} onClick={open} className="cursor-pointer"/>
                 </div>
 
                 {list ?
