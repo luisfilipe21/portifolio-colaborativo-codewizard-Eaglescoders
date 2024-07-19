@@ -17,7 +17,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Header />
       <HeroSection />
       <Benefits />
-      <span>[Coloque aqui a sesão de tech-and-lang]</span>
+      {/* <span>[Coloque aqui a sesão de tech-and-lang]</span>
+      
+      */}
       <Team />
       <AboutProject />
       <Comments />
