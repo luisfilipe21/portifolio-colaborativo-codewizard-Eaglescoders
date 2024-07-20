@@ -10,7 +10,7 @@ export default {
         inter: ["Inter", "sans-serif"],
       },
       textColor: {
-        gray: ["#B5B3BC"],
+        gray: ["#B5B3BC", "#ebebeb", "#e1e1e1"],
         nameMember: ["#03FCFC"]
       },
       colors: {
