@@ -74,7 +74,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p className="text-center text-xs  font-mulish pb-8 md:text-left md:ml-8 text-white-1">
+            <p className="flex justify-center text-xs font-mulish pb-8 md:text-left md:ml-8 text-white-1">
                 Projeto Frontendfusion - Todos os direitos reservados
             </p>
         </footer>
