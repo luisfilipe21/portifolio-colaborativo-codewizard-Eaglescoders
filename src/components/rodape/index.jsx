@@ -38,26 +38,28 @@ export const Footer = () => {
                     <div className="flex h-max box-border gap-8 md:flex-col">
                         <figure className="flex flex-wrap items-center h-12 relative md:flex-nowrap md:w-full md:max-w-60">
 
-                            {/* {data?.people.map((integrante, index) =>
+                            {data?.people.map((integrante, index) =>
                                 <img
-                                    className={`w-8 rounded-full md:zIndex${index} md:absolute md:marginRight${index} lg:w-12 lg:right-40`}
-                                    style={{ 
-                                        zIndex: index, 
-                                        marginRight: `${index*10}px`
-                                      }} 
+                                    className={`flex items-center w-8 rounded-full md:zIndex${index} md:absolute md:marginRight${index} lg:w-12 lg:right-0`}
+                                    style={{
+                                        zIndex: index,
+                                        marginRight: `${index * 32}px`,
+                                        rightLane: `${index * 16}px`
+                                    }}
+
                                     key={integrante.id}
                                     src={integrante.githubImgUrl}
                                     alt={integrante.name}
                                     title={integrante.name}
                                 />
-                            )} */}
+                            )}
 
-                            <img src={data.people[0].githubImgUrl} alt={data.people[0].name} title={data.people[0].name} className="w-8 rounded-full md:z-0 md:absolute md:right-[105px] lg:w-12 lg:right-40 " />
+                            {/* <img src={data.people[0].githubImgUrl} alt={data.people[0].name} title={data.people[0].name} className="w-8 rounded-full md:z-0 md:absolute md:right-[105px] lg:w-12 lg:right-40 " />
                             <img src={data.people[1].githubImgUrl} alt={data.people[1].name} title={data.people[1].name} className="w-8 rounded-full md:z-10 md:absolute md:right-[85px] lg:w-12 lg:right-32 " />
                             <img src={data.people[2].githubImgUrl} alt={data.people[2].name} title={data.people[2].name} className="w-8 rounded-full md:z-20 md:absolute md:right-[65px] lg:w-12 lg:right-24 " />
                             <img src={data.people[3].githubImgUrl} alt={data.people[3].name} title={data.people[3].name} className="w-8 rounded-full md:z-30 md:absolute md:right-[45px] lg:w-12 lg:right-16 " />
                             <img src={data.people[4].githubImgUrl} alt={data.people[4].name} title={data.people[4].name} className="w-8 rounded-full md:z-40 md:absolute md:right-[25px] lg:w-12 lg:right-8 " />
-                            <img src={data.people[0].githubImgUrl} alt={data.people[0].name} title={data.people[0].name} className="w-8 rounded-full md:z-50 md:absolute md:right-[5px]  lg:w-12 lg:right-0 " />
+                            <img src={data.people[0].githubImgUrl} alt={data.people[0].name} title={data.people[0].name} className="w-8 rounded-full md:z-50 md:absolute md:right-[5px]  lg:w-12 lg:right-0 " /> */}
                         </figure>
 
                         <div className="hidden gap-0.5 md:inline-flex md:flex-col md:max-w-60 justify-center text-white-1">
@@ -72,7 +74,7 @@ export const Footer = () => {
                     </div>
                 </div>
             </div>
-            <p className="text-center text-xs  font-mulish pb-8 md:text-left md:ml-8 text-white-1">
+            <p className="flex justify-center text-xs font-mulish pb-8 md:text-left md:ml-8 text-white-1">
                 Projeto Frontendfusion - Todos os direitos reservados
             </p>
         </footer>
