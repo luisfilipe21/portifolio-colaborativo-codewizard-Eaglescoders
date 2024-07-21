@@ -10,7 +10,7 @@ export default function Card({ text, name, func, src }) {
         <img src="./src/assets/icons/star-full.svg" alt="" />
         <img src="./src/assets/icons/star-full.svg" alt="" />
       </div>
-      <p className="text-mobile-extraMini font-bold leading-4 text-purple-1 dark:text-gray-2 lg:leading-desktop-larger lg:text-desktop-extraMini">
+      <p className="text-mobile-extraMini font-bold leading-4 text-gray-1 lg:leading-desktop-larger lg:text-desktop-extraMini">
         &#34;{text}&#34;
       </p>
       <div className="flex items-center gap-2.5">

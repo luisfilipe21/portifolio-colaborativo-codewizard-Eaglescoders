@@ -27,10 +27,10 @@ export default function Comments() {
   };
 
   return (
-    <div className="bg-white-1 dark:bg-purple-1 py-28 gap-16 flex flex-col">
+    <div className="bg-purple-1 py-28 gap-16 flex flex-col">
       <>
         <section className="font-mulish mx-auto pb-14 w-small lg:gap-medium lg:w-full">
-          <h2 className="font-inconsolata text-mobile-hiper text-center text-purple-1 dark:text-gray-1 mb-8 border-b-2 pb-4 lg:border-0 lg:text-desktop-ultra">
+          <h2 className="font-inconsolata text-mobile-hiper text-center text-gray-0 mb-8 border-b-2 pb-4 lg:border-0 lg:text-desktop-ultra">
             Comentários e <br className="lg:hidden" />
             Avaliações
           </h2>
@@ -75,11 +75,11 @@ export default function Comments() {
         </section>
 
         <section className="flex flex-col gap-8">
-          <h2 className="font-inconsolata text-purple-1 dark:text-gray-1 text-mobile-hiper text-center lg:text-desktop-ultra">
+          <h2 className="font-inconsolata text-gray-0 text-mobile-hiper text-center lg:text-desktop-ultra">
             Deixe o seu <br className="lg:hidden" /> Comentário
           </h2>
 
-          <hr className="hidden lg:block bg-gray-2  w-extraHiper m-auto h-0.5 mt-miniNegativo mb-6" />
+          <hr className="hidden lg:block bg-gray-1  w-hiper m-auto h-0.5 mt-miniNegativo mb-6" />
 
           <Form />
         </section>
