@@ -8,6 +8,7 @@ import Benefits from "./components/benefits";
 import Comments from "./components/coments";
 import { Header } from "./components/cabecalho";
 import Team from "./components/team";
+import LingAndTech from "./components/ling-and-tech/LingAndTech";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
@@ -17,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Header />
       <HeroSection />
       <Benefits />
-      <span>[Coloque aqui a sesão de tech-and-lang]</span>
+      <LingAndTech />
       <Team />
       <AboutProject />
       <Comments />
