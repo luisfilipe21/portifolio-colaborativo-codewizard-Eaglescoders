@@ -1,52 +1,82 @@
-import github2 from "../../assets/github2.svg";
 import github from "../../assets/github.svg";
 import sol from "../../assets/sol.svg";
 import lista from "../../assets/lista.svg";
+import clsx from "clsx";
 import { useState } from "react";
 
-
 export const Header = () => {
+  const [list, setList] = useState(false);
 
-    const [list, setList] = useState(false);
+  const ListMenu = clsx(
+    `font-inconsolata py-1 text-[#ffffff] cursor-pointer hover:underline`
+  );
 
-    const open = () => {
-        setList(!list)
-    }
+  const open = () => {
+    setList(!list);
+  };
 
-    return (
-        <header className="w-full max-w-5xl mx-auto my-auto sm:max-w-md md:max-w-3xl lg:max-w-5xl text-gray-0 ">
-            <div className="py-6 px-4 flex justify-between gap-8 items-center md:justify-normal md:gap-16 md:flex-row-reverse">
-                <div className="flex flex-row-reverse gap-8">
-                    <button className="bg-green-1 text-white-1 flex text-white p-4 w-36 items-center gap-2 justify-center rounded-lg font-inconsolata text-xl">
-                        github<img src={github}/>
-                    </button>
-                    <img src={sol} className="hidden md:flex md:justify-end cursor-pointer" />
-                </div>
-                <div className="hidden md:flex justify-between">
-                    <ul className="flex gap-16">
-                        <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Sobre</a></li>
-                        <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Equipe</a></li>
-                        <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Vantagens</a></li>
-                        <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Participantes</a></li>
-                    </ul>
-                </div>
+  return (
+    <header
+      className={`
+        w-full flex  items-center gap-10 flex-row
+        xs:pl-5
+        md:justify-center
+    extraLg:pr-36 py-5 extraLg:justify-end
+    relative
+    
+    `}
+    >
+      <ul className="flex gap-16 hidden md:flex">
+        <li className={`${ListMenu}`}>
+          <a href="#">Sobre</a>
+        </li>
+        <li className={`${ListMenu}`}>
+          <a href="#">Equipe</a>
+        </li>
+        <li className={`${ListMenu}`}>
+          <a href="#">Vantagens</a>
+        </li>
+        <li className={`${ListMenu}`}>
+          <a href="#">Participantes</a>
+        </li>
+      </ul>
 
-                <div className="flex gap-2 md:hidden">
-                    <img src={sol} className="cursor-pointer" />
-                    <img src={lista} onClick={open} className="cursor-pointer"/>
-                </div>
+      <img
+        src={lista}
+        onClick={open}
+        className="cursor-pointer absolute right-8 md:hidden"
+      />
 
-                {list ?
-                    <div className="absolute right-12 top-20 bg-rodape-0 rounded-md p-4">
-                        <ul>
-                            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Sobre</a></li>
-                            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Equipe</a></li>
-                            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Vantagens</a></li>
-                            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline"><a href="#">Participantes</a></li>
-                        </ul>
-                    </div>
-                    : null}
-            </div>
-        </header>
-    )
-}
+      <img
+        src={sol}
+        className="cursor-pointer right-24 absolute flex md:sticky "
+      />
+      <button
+        className="bg-green-1 text-white-1 flex text-white p-4 w-36 items-center gap-2 justify-center rounded-lg font-inconsolata text-xl
+        "
+      >
+        github
+        <img src={github} />
+      </button>
+
+      {list ? (
+        <div className="absolute right-12 top-20 bg-rodape-0 rounded-md p-4">
+          <ul>
+            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline">
+              <a href="#">Sobre</a>
+            </li>
+            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline">
+              <a href="#">Equipe</a>
+            </li>
+            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline">
+              <a href="#">Vantagens</a>
+            </li>
+            <li className="font-inconsolata py-1 text-white cursor-pointer hover:underline">
+              <a href="#">Participantes</a>
+            </li>
+          </ul>
+        </div>
+      ) : null}
+    </header>
+  );
+};
