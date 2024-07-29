@@ -11,10 +11,10 @@ import VscodeIcon from "../../assets/vscode-icon.svg";
 
 function LingAndTech() {
   return (
-    <div className="flex flex-col w-full min-h-screen justify-center items-center bg-[#0f0920]">
+    <div className="flex flex-col w-full min-h-screen justify-center items-center bg-[#0f0920] mt-20 mb-10">
       <div className="flex flex-col justify-center items-center pb-8">
         <h1 className="font-inconsolata text-[22px] md:text-[31px] pb-4 text-[#FFFFFF]">
-          Linguagens e Tecnologias
+          Linguagens e Tecnologias Usadas
         </h1>
         <div className="w-[306px] md:w-[512px] h-[2px] bg-[#EBEBEB]"></div>
       </div>
