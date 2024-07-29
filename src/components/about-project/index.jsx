@@ -50,7 +50,7 @@ export function AboutProject(){
                 <h2 className="text-base md:text-[32px]">Estamos ansiosos para receber sua inscrição e dar as boas-vindas a você em nossa comunidade!</h2>
 
                 <button className="px-9 md:px-12 py-[18px] md:py-4 bg-[#16C586] md:bg-[#06B94E] rounded-lg md:rounded-2xl text-lg md:text-2xl font-bold">
-                  Quero Participar
+                  Quero Participar.
                 </button>
             </footer>
         </section>
