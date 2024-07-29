@@ -5,8 +5,8 @@ export const Footer = () => {
     const { data } = useFetchData('https://sistema-cadastro-dados-portifolio-front-end-fusion.vercel.app/api/EagleCoders');
 
     return (
-        <footer className="bg-rodape-0 w-full rounded-t-3xl">
-            <div className="flex p-8 justify-between">
+        <footer className="bg-rodape-0 w-full rounded-t-3xl bg-purple-2">
+            <div className="flex p-8 justify-between ">
 
                 <div className="flex flex-col md:flex-row md:mr-4">
                     <div>

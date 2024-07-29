@@ -11,7 +11,8 @@ const Team = () => {
 
     console.log(data)
   return (
-    <div>
+    <div className='mt-28 mb-10'>
+
             {data?.people.map((member) => (
                 <TeamCard key={member.id} member={member} />
             ))}

@@ -57,9 +57,9 @@ const TeamCard = ({member}) => {
           ))}
         </div>
 
-        <div className="hidden md:grid md:grid-cols-3 gap-7 mt-10">
+        <div className="hidden md:grid md:grid-cols-3 gap-7 mt-10 ">
           {member?.projects.map((project) => (
-              <img src={project.projectUrl} alt={project.id} key={project.id}/>
+              <img src={project.projectUrl} alt={project.id} key={project.id} className='rounded-lg'/>
           ))}
         </div>
       </section>

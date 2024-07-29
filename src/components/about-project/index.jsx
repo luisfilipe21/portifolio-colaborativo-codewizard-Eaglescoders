@@ -1,4 +1,5 @@
 import { SectionAbout } from "./section-about";
+// after about
 
 
 export function AboutProject(){
@@ -45,7 +46,7 @@ export function AboutProject(){
                 ))}
             </section>
 
-            <footer className="w-[90%] md:w-[65%] flex flex-col items-center justify-center gap-11 mx-auto">
+            <footer className="w-[90%] md:w-[65%] flex flex-col items-center justify-center gap-11 mx-auto mt-20 mb-10">
                 <h2 className="text-base md:text-[32px]">Estamos ansiosos para receber sua inscrição e dar as boas-vindas a você em nossa comunidade!</h2>
 
                 <button className="px-9 md:px-12 py-[18px] md:py-4 bg-[#16C586] md:bg-[#06B94E] rounded-lg md:rounded-2xl text-lg md:text-2xl font-bold">
