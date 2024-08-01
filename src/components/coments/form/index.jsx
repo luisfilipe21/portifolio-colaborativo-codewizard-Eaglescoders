@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-import { BsGithub } from "react-icons/bs";
 import * as Yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
@@ -21,7 +20,6 @@ export default function Form() {
   })
 
   const { handleSubmit, register, formState: { errors } } = useForm({
-
     resolver: yupResolver(validationComments)
   })
 
@@ -45,51 +43,37 @@ export default function Form() {
     setComent("");
   };
 
-  async function API() {
-    const url = await fetch("http://localhost:3001/comments/send-comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        name: name,
-        function: "Desenvolvedor Front-end",
-        email: mail,
-        coment: coment,
-        img: "caminho-da-imagem",
-      }),
-    });
 
-    return url;
-  }
+  const onSubmit = async (data) => {
+    try {
+        const response = await axios.post('http://localhost:3001/comments/send-comment', {
+            name: data.name,
+            githubuser: data.githubuser,
+            email: data.email,
+            comment: data.comment,
+            img: formValues.avatar
+        });
 
-  async function sendInformation(e) {
-    e.preventDefault();
+        if (response.status === 200) {
+            console.log("Comentário registrado");
+        } else {
+            console.log("Falha ao Registrar Comentário");
+        }
+    } catch (error) {
+        console.error("Erro ao enviar comentário:", error);
+    }
+};
 
-    await API();
-    clean();
-  }
-
-  const upLoad = () => { };
-
-  const emailRegex = "^[a-zA-Z][a-zA-Z0-9]{3,}@[a-zA-Z]{3,}.[a-zA-Z]{2,}$";
-
-  const onSubmit = (data) => {
-    console.log(data)
-  }
 
   const handleInputsChanges = (e) => {
     const { name, value } = e.target
-    console.log(name, value)
     setformValues(prevState => ({
       ...prevState,
       [name]: value
     }))
   }
 
-
-
-  const getGithuberDetails = async (e) => {
+  const getGithubUserDetails = async (e) => {
 
     const response = await axios.get(`https://api.github.com/users/${formValues.githubuser}`)
     const avatar = response.data.avatar_url
@@ -99,11 +83,11 @@ export default function Form() {
 
   }
 
+
+
   return (
-    <>
-      {
-        formValues.githubuser
-      }
+        <>
+
 
       <form
         className="flex justify-center gap-8"
@@ -111,7 +95,6 @@ export default function Form() {
         // onSubmit={(e) => sendInformation(e)}
         onSubmit={handleSubmit(onSubmit)}
         onChange={handleInputsChanges}
-
       >
         <fieldset className="flex flex-col w-extraSmall mx-auto gap-3.5 lg:mx-0 lg:w-extraLarger">
           <div className="flex gap-4">
@@ -124,7 +107,7 @@ export default function Form() {
               // onChange={(e) => setName(e.target.value)}
               {...register("name")}
             />
-            {errors.name && <span>{errors.name.message}</span>}
+            {errors.name && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.name.message}</span>}
 
 
 
@@ -136,23 +119,11 @@ export default function Form() {
               // value={name}
               // onChange={(e) => setName(e.target.value)}
               {...register("githubuser")}
-              onBlur={getGithuberDetails}
+              onBlur={getGithubUserDetails}
+
             />
-            {errors.githubuser && <span>{errors.githubuser.message}</span>}
+            {errors.githubuser && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.githubuser.message}</span>}
 
-            <>
-              {/* <label
-              htmlFor="github"
-              className="hidden bg-black-1 w-40 h-14 rounded-lg cursor-pointer text-gray-1 lg:flex items-center justify-center gap-4"
-              // onClick={(e) => upLoad(e)}
-              // will no longer be necessary as we will use {...register} to manipulate the input value
-            >
-              <BsGithub />
-              Conectar Github
-            </label> */}
-
-
-            </>
           </div>
 
           <label htmlFor="rate">Avalie sua Experiência</label>
@@ -168,20 +139,20 @@ export default function Form() {
             {...register("rate")}
             list="rate-list"
           />
-          {errors.githubuser && <span>{errors.githubuser.message}</span>}
+          {errors.githubuser && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.githubuser.message}</span>}
 
 
 
           <datalist id="rate-list" className="bg-red-400">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="1">⭐</option>
+            <option value="2">⭐⭐</option>
+            <option value="3">⭐⭐⭐</option>
+            <option value="4">⭐⭐⭐⭐</option>
+            <option value="5">⭐⭐⭐⭐⭐</option>
 
           </datalist>
 
-          {errors.rate && <span>{errors.rate.message}</span>}
+          {errors.rate && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.rate.message}</span>}
 
 
           <input
@@ -191,10 +162,10 @@ export default function Form() {
             // value={mail}
             // onChange={(e) => setMail(e.target.value)}
             //will no longer be necessary as we will use {...register} to manipulate the input value
-            pattern={emailRegex}
+            // pattern={emailRegex}
             {...register("email")}
           />
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.email.message}</span>}
 
 
           <textarea
@@ -208,7 +179,7 @@ export default function Form() {
             {...register("comment")}
           ></textarea>
 
-          {errors.comment && <span>{errors.comment.message}</span>}
+          {errors.comment && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.comment.message}</span>}
 
 
           <div className="flex gap-4 h-9 font-inter lg:hidden">
@@ -219,7 +190,7 @@ export default function Form() {
             />
             <button
               className="rounded-lg w-full h-full dark:text-white-1 cursor-pointer border border-blue-1 p-2.5 flex items-center justify-center font-inter"
-              onClick={(e) => clean(e)}
+              onClick={clean}
             >
               Limpar
             </button>
@@ -256,7 +227,7 @@ export default function Form() {
             />
             <button
               className="rounded-lg w-full h-9 text-purple-1 dark:text-white-1 cursor-pointer border border-blue-1 p-2.5 flex items-center justify-center font-inter"
-              onClick={(e) => clean(e)}
+              onClick={clean}
             >
               Limpar
             </button>
