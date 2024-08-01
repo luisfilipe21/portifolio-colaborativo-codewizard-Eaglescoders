@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const router = require("./routes/commentsRoutes");
 const dotenv = require("dotenv");
-
+const cors = require('cors');
 dotenv.config();
 
 const app = express();
@@ -15,6 +15,13 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(express.json());
 
 app.use('/comments', router);
+
+app.use(cors({
+  origin: 'http://localhost:3001', 
+  methods: ['GET', 'POST'], 
+  allowedHeaders: ['Content-Type', 'Authorization'] 
+}));
+
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
