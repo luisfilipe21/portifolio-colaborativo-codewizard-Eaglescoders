@@ -12,5 +12,8 @@ mongoose.connect(process.dotenv.MONGO_URI)
 
 app.use(express.json());
 
-app.get('/', getcomments)
+app.get('/comments', getcomments);
 
+app.lister(PORT, ()=>{
+  console.log(`Servidor Rodando na Porsta ${PORT}`)
+})
