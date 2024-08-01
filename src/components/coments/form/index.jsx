@@ -125,13 +125,9 @@ export default function Form() {
             {errors.githubuser && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.githubuser.message}</span>}
 
           </div>
-
-          <label htmlFor="rate">Avalie sua Experiência</label>
-
-
           <input
             type="text"
-            placeholder="Estrelas"
+            placeholder="Classificar"
             className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 lg:max-w-min"
             //will no longer be necessary as we will use {...register} to manipulate the input value
             // value={name}
