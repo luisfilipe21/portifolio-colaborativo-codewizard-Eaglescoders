@@ -23,7 +23,7 @@ export default function Form() {
     const words = import.meta.env.VITE_BAD_WORDS || ''
     return words.split(',');
   }
-  
+
   const filterTeste = new Filter()
   const badwords = getBadWords()
   const wordsToArray = []
