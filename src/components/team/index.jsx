@@ -9,7 +9,7 @@ const Team = () => {
     if (loading) return <Loader />;
     if (error) return <p className="text-red-500">Tivemos um erro! Tente novamente mais tarde.</p>;
 
-    console.log(data)
+    // console.log(data)
   return (
     <div className='mt-28 mb-10'>
 

@@ -6,7 +6,7 @@ package-lock.json
 yarn.lock
 
 # Ambiente
-.env
+# .env
 
 # Logs
 logs/
