@@ -3,6 +3,6 @@ const { createAnewComment } = require('../controller/commentscontroller');
 
 const router = express.Router();
 
-router.post('/send-comments', createAnewComment);
+router.post('/send', createAnewComment);
 
 module.exports = router;
