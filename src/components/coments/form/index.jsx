@@ -45,23 +45,20 @@ export default function Form() {
 
 
   const onSubmit = async (data) => {
-    try {
-        const response = await axios.post('http://localhost:3001/comments/send-comment', {
-            name: data.name,
-            githubuser: data.githubuser,
-            email: data.email,
-            comment: data.comment,
-            img: formValues.avatar
-        });
 
-        if (response.status === 200) {
-            console.log("Comentário registrado");
-        } else {
-            console.log("Falha ao Registrar Comentário");
-        }
-    } catch (error) {
-        console.error("Erro ao enviar comentário:", error);
-    }
+try{
+  const{name, email, comment, avatar ,rate, githubuser } = data
+  const response = await axios.post('/api/comments/send', {
+    name, email, comment, avatar, rate , githubuser
+  });
+  if(response.status === 201){
+    alert("Comentário enviado")
+  }else{
+    alert("Falha no Envio")
+  }
+}catch(error){
+  console.log(error)
+}
 };
 
 
