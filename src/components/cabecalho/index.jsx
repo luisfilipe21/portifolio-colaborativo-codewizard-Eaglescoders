@@ -31,22 +31,22 @@ export const Header = () => {
       {list ? (
         <ul className="absolute right-8   w-64 top-20 items-center flex flex-col">
           <li
-            className={`${ListMenu} rounded-t-md  bg-[#221c3e]  py-2  flex justify-center w-full`}
+            className={`${ListMenu} rounded-t-md  bg-[#221c3e]  py-2  flex justify-center w-full hover:bg-[#393062] `}
           >
             <a href="#">Sobre</a>
           </li>
           <li
-            className={`${ListMenu} bg-[#221c3e]  py-2 flex justify-center w-full`}
+            className={`${ListMenu} bg-[#221c3e]  py-2 flex justify-center w-full hover:bg-[#393062]`}
           >
             <a href="#">Equipe</a>
           </li>
           <li
-            className={`${ListMenu} bg-[#221c3e] py-2 flex justify-center w-full`}
+            className={`${ListMenu} bg-[#221c3e] py-2 flex justify-center w-full hover:bg-[#393062]`}
           >
             <a href="#">Vantagens</a>
           </li>
           <li
-            className={`${ListMenu} bg-[#221c3e] rounded-b-md bg-] py-2 flex justify-center w-full`}
+            className={`${ListMenu} bg-[#221c3e] rounded-b-md bg-] py-2 flex justify-center w-full hover:bg-[#393062]`}
           >
             <a href="#">Participantes</a>
           </li>
