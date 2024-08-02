@@ -58,8 +58,8 @@ export const HeroSection = () => {
         <figure className="flex mt-6  items-center justify-center">
           <img
             src={data?.people[4].githubImgUrl}
-            alt={data?.people[0].name}
-            title={data?.people[0].name}
+            alt={data?.people[4].name}
+            title={data?.people[4].name}
             className=" w-24    rounded-2xl md:w-32 "
           />
         </figure>
