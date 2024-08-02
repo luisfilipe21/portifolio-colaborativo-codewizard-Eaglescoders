@@ -16,11 +16,13 @@ app.use(express.json());
 
 app.use('/comments', router);
 
+
 app.use(cors({
-  origin: 'http://localhost:3001', 
-  methods: ['GET', 'POST'], 
-  allowedHeaders: ['Content-Type', 'Authorization'] 
+  origin: '*', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+  allowedHeaders: ['Content-Type'] // Cabeçalhos permitidos
 }));
+
 
 
 app.listen(PORT, () => {
