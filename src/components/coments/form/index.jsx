@@ -41,7 +41,7 @@ export default function Form() {
     name: Yup.string().required("Digite o nome"),
     email: Yup.string().required("digite o email"),
     comment: Yup.string().required("Digite o comentário"),
-    rate: Yup.string().required("Escola uma Estrela"),
+    // rate: Yup.string().required("Escola uma Estrela"),
     githubuser: Yup.string(),
     avatar: Yup.string()
   })
@@ -74,7 +74,11 @@ export default function Form() {
   };
 
 
+  const [isLoading, setisLoading] =useState(null)
+
   const onSubmit = async (data) => {
+    setisLoading(true)
+    
     
     try {
       const { name, email, comment, avatar, rate, githubuser } = data
@@ -83,11 +87,15 @@ export default function Form() {
       });
       if (response.status === 201) {
         toast("✅ Sucesso!")
+        console.log("oi")
+        setisLoading(false)
       } else {
         toast("Falha")
+        setisLoading(false)
       }
     } catch (error) {
       console.log(error)
+      
     }
   };
 
@@ -248,6 +256,7 @@ console.log()
               Limpar
             </button>
           </div>
+          <span className="text-white-1">{isLoading && "Carregando" }</span>
         </fieldset>
 
         <section className="hidden lg:flex flex-col w-hiper h-auto bg-purple-3 dark:bg-purple-2 rounded-2xl p-9 gap-4">
@@ -297,6 +306,7 @@ console.log()
             </button>
           </div>
         </section>
+  
 
       </form>
 
