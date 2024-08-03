@@ -8,7 +8,8 @@ const commentsSchema = new Schema({
   rate: { type: Number, required: true },
   comment: { type: String, required: true },
   avatar : {type : String, required : false},
-  githubuser : {type : String, required : false}
+  githubuser : {type : String, required : false},
+  isOfensive : {type : Boolean, required : false}
 }, {
   timestamps: true
 });
