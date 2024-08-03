@@ -10,7 +10,7 @@ import { BiEraser, BiUser } from "react-icons/bi";
 import { ImInfo } from "react-icons/im";
 import { CommentPolicy } from "./commentpolicy.jsx";
 import { BsEye } from "react-icons/bs";
-import Filter from 'bad-words';
+
 
 
 
@@ -18,27 +18,21 @@ import Filter from 'bad-words';
 
 export default function Form() {
 
+  const [star, setstar] = useState();
+  const [hover, sethover] = useState();
 
-  const getBadWords = () =>{
+  const getBadWords = () => {
     const words = import.meta.env.VITE_BAD_WORDS || ''
     return words.split(',');
   }
-
-  const filterTeste = new Filter()
   const badwords = getBadWords()
-  const wordsToArray = []
-  wordsToArray.push(...badwords)
+  const badWordsArray = []
+  badWordsArray.push(...badwords)
 
-
-
-
-
-
-  const [star, setstar] = useState();
-  const [hover, sethover] = useState()
 
   const [formValues, setformValues] = useState({
     avatar: '',
+    isOfensive : false
 
   })
 
@@ -55,8 +49,6 @@ export default function Form() {
   const { handleSubmit, register, formState: { errors } } = useForm({
     resolver: yupResolver(validationComments)
   })
-
-
 
 
   const file = useRef();
@@ -80,21 +72,19 @@ export default function Form() {
       githubuser: ''
     });
   };
-  
+
 
   const onSubmit = async (data) => {
-
+    
     try {
       const { name, email, comment, avatar, rate, githubuser } = data
       const response = await axios.post('/api/comments/send', {
-        name, email, comment, avatar, rate, githubuser
+        name, email, comment, avatar, rate, githubuser, isOfensive : formValues.isOfensive
       });
       if (response.status === 201) {
         toast("✅ Sucesso!")
       } else {
         toast("Falha")
-
-
       }
     } catch (error) {
       console.log(error)
@@ -103,17 +93,19 @@ export default function Form() {
 
 
   const handleInputsChanges = (e) => {
-    const { name, value } = e.target
-    const verifyWords = wordsToArray.includes(value)
 
-    if(verifyWords){
-      alert("Não pode DIgitar Palavrão aqui ô Filho da Puta ")
-    }
+console.log()
+    const { name, value } = e.target
     setformValues(prevState => ({
       ...prevState,
-      [name]: value
+      [name]: value,
     }))
+
   }
+
+  // const verifyOfensiveWords = (e) =>{
+  //   console.log(e.target.value)
+  // }
 
   const getGithubUserDetails = async (e) => {
 
@@ -126,10 +118,23 @@ export default function Form() {
 
   }
 
+  const verifyOfensiveWords = () =>{
+    const commentsWord = formValues.comment;
+    const filterArray = commentsWord.split(" ")
+    const verify = filterArray.filter((word) => badWordsArray.includes(word))
+    if(verify.length >= 2){
+      setformValues(prevState => ({
+        ...prevState,
+        isOfensive : true
+      }))
 
-
-
-
+    }else{
+           setformValues(prevState => ({
+        ...prevState,
+        isOfensive : false
+      }))
+    }
+  }
 
   return (
     <>
@@ -194,6 +199,7 @@ export default function Form() {
             // onChange={(e) => setComent(e.target.value)}
             //will no longer be necessary as we will use {...register} to manipulate the input value
             {...register("comment")}
+            onBlur={verifyOfensiveWords}
           ></textarea>
 
           {errors.comment && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.comment.message}</span>}
