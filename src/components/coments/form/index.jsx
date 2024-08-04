@@ -4,16 +4,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
-import { FaStar } from "react-icons/fa";
+import { FaSpinner, FaStar } from "react-icons/fa";
 import { FaRegStar } from "react-icons/fa";
 import { BiEraser, BiUser } from "react-icons/bi";
 import { ImInfo } from "react-icons/im";
 import { CommentPolicy } from "./commentpolicy.jsx";
 import { BsEye } from "react-icons/bs";
-
-
-
-
+import clsx from 'clsx'
 
 
 export default function Form() {
@@ -32,7 +29,8 @@ export default function Form() {
 
   const [formValues, setformValues] = useState({
     avatar: '',
-    isOfensive : false
+    isOfensive : false,
+    comment : ''
 
   })
 
@@ -62,16 +60,6 @@ export default function Form() {
     img: "./src/assets/guido.png",
   };
 
-  const clean = () => {
-    setformValues({
-      avatar: '',
-      name: '',
-      email: '',
-      comment: '',
-      rate: '',
-      githubuser: ''
-    });
-  };
 
 
   const [isLoading, setisLoading] =useState(null)
@@ -79,9 +67,12 @@ export default function Form() {
   const onSubmit = async (data) => {
     setisLoading(true)
     
+
+    
     
     try {
       const { name, email, comment, avatar, rate, githubuser } = data
+
       const response = await axios.post('/api/comments/send', {
         name, email, comment, avatar, rate, githubuser, isOfensive : formValues.isOfensive
       });
@@ -89,6 +80,14 @@ export default function Form() {
         toast("✅ Sucesso!")
         console.log("oi")
         setisLoading(false)
+        setformValues({
+          avatar: '',
+          name: '',
+          email: '',
+          comment: '',
+          rate: '',
+          githubuser: ''
+        });
       } else {
         toast("Falha")
         setisLoading(false)
@@ -159,6 +158,7 @@ console.log()
             <input
               type="text"
               placeholder="Nome"
+              value={formValues.name || ""}
               className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 lg:max-w-min"
               //will no longer be necessary as we will use {...register} to manipulate the input value
               // value={name}
@@ -172,6 +172,7 @@ console.log()
             <input
               type="text"
               placeholder="githubuser"
+              value={formValues.githubuser || ""}
               className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 lg:max-w-min"
               //will no longer be necessary as we will use {...register} to manipulate the input value
               // value={name}
@@ -188,6 +189,7 @@ console.log()
           <input
             type="email"
             placeholder="email@exemplo.com"
+            value={formValues.email || ""}
             className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 "
             // value={mail}
             // onChange={(e) => setMail(e.target.value)}
@@ -206,9 +208,19 @@ console.log()
             // value={coment}
             // onChange={(e) => setComent(e.target.value)}
             //will no longer be necessary as we will use {...register} to manipulate the input value
+            value={formValues.comment || ""}
             {...register("comment")}
             onBlur={verifyOfensiveWords}
-          ></textarea>
+          >
+
+          </textarea>
+
+        <section>
+          
+           <span className={clsx(formValues.comment.length >= 230 ? 'text-red-400' : 'text-white-1', 'font-thin')}>{formValues.comment.length}/264</span> 
+          
+        </section>
+
 
           {errors.comment && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.comment.message}</span>}
 
@@ -243,18 +255,24 @@ console.log()
           </fieldset> */}
 
           <div className="flex gap-4 h-9 font-inter lg:hidden">
-            <input
+          <button
               type="submit"
-              value="Confirmar"
-              className="rounded-lg w-full h-full dark:text-white-1 cursor-pointer px-2.5 dark:bg-blue-1 font-inter"
-            />
+              className="flex items-center gap-2 rounded-lg w-full h-full dark:text-white-1 cursor-pointer px-2.5 dark:bg-blue-1 font-inter"
+            >
+              Confirmar
+              
+              {
+                isLoading && <span className="flex items-center gap-1" >Enviando... <FaSpinner className="animation animate-spin" /></span>
+              }
+
+            </button>
             <button
               type="button"
               className="rounded-lg w-full h-full dark:text-white-1 cursor-pointer border border-blue-1 p-2.5 flex items-center justify-center font-inter"
-              onClick={clean}
+             
             >
               Limpar
-            </button>
+x            </button>
           </div>
           <span className="text-white-1">{isLoading && "Carregando" }</span>
         </fieldset>
@@ -267,7 +285,10 @@ console.log()
             className="text-purple-1 dark:text-gray-2 text-desktop-extraMini font-normal w-full min-h-36  bg-inherit resize-none outline-none p-2.5 overflow-hidden"
             value={formValues.comment ? `${formValues.comment}` : `"${staticData.coment}"`}
             disabled
-          ></textarea>
+          >
+            
+          </textarea>
+          
 
           <div className="flex items-center gap-2.5">
             <figure className="h-14 w-14 rounded-full bg-black-1 grid place-content-center overflow-hidden">
@@ -291,16 +312,24 @@ console.log()
 
           <div className="flex gap-4 h-9 font-inter w-52 self-end">
 
-            <input
+          <button
               type="submit"
-              value="Confirmar"
-              className="rounded-lg w-full h-9 text-purple-1 dark:text-white-1 cursor-pointer px-2.5 dark:bg-blue-1 font-inter"
-            />
+              className="flex items-center gap-2 rounded-lg w-full h-full dark:text-white-1 cursor-pointer px-2.5 dark:bg-blue-1 font-inter"
+              
+            >
+              Confirmar
+              
+              {
+                isLoading && <span className="flex items-center gap-1" >Enviando... <FaSpinner className="animation animate-spin" /></span>
+              }
+
+            </button>
+
+
             <button
 
               type="button"
               className="rounded-lg w-full h-9 text-purple-1 dark:text-white-1 cursor-pointer border border-blue-1 p-2.5 flex items-center justify-center font-inter"
-              onClick={clean}
             >
               <BiEraser /> Limpar
             </button>
