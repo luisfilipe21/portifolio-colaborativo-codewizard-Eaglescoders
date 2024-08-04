@@ -75,7 +75,7 @@ export default function Form() {
     try {
       const { name, email, comment, avatar, rate, githubuser } = data
 
-      const response = await axios.post('/api/comments/send', {
+      const response = await axios.post(`/api/comments/send`, {
         name, email, comment, avatar, rate, githubuser, isOfensive: formValues.isOfensive
       });
       if (response.status === 201) {

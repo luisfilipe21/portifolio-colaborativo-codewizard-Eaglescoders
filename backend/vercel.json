@@ -2,14 +2,19 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/comments/index.js",
+      "src": "api/index.js",
       "use": "@vercel/node"
     }
   ],
   "routes": [
     {
-      "src": "/comments/(.*)",
-      "dest": "api/comments/index.js"
+      "src": "/api/(.*)",
+      "dest": "/api/index.js"
     }
-  ]
+  ],
+  "env": {
+    "MONGO_URI": "@mongo_uri",
+    "PORT": "5000", 
+    "URL_ORIGIN": "https://portifolio-colaborativo-codewizard-eaglescoders.vercel.app"
+  }
 }

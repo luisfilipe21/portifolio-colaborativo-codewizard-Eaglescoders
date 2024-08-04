@@ -16,11 +16,15 @@ app.use(express.json());
 
 app.use('/comments', router);
 
+const urlorigin = process.env.VITE_API_URL
+
+
 app.use(cors({
-  origin: '*', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
-  allowedHeaders: ['Content-Type'] // Cabeçalhos permitidos
+  origin: "*",
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
 }));
+
 
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
