@@ -4,13 +4,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup"
 import axios from "axios";
 import toast, { Toaster } from 'react-hot-toast';
-import { FaSpinner, FaStar } from "react-icons/fa";
-import { FaRegStar } from "react-icons/fa";
-import { BiEraser, BiUser } from "react-icons/bi";
-import { ImInfo } from "react-icons/im";
-import { CommentPolicy } from "./commentpolicy.jsx";
 import { BsEye } from "react-icons/bs";
 import clsx from 'clsx'
+import { InputForm } from "./input.jsx";
+import { SubmitButtonConfirm } from "./submitbutton.jsx";
+import { ResetButton } from "./Resetbutton.jsx";
+import { FaUser } from "react-icons/fa";
 
 
 export default function Form() {
@@ -29,20 +28,26 @@ export default function Form() {
 
   const [formValues, setformValues] = useState({
     avatar: '',
-    isOfensive : false,
-    comment : ''
+    isOfensive: false,
+    comment: ''
 
   })
-
 
   const validationComments = Yup.object().shape({
-    name: Yup.string().required("Digite o nome"),
-    email: Yup.string().required("digite o email"),
-    comment: Yup.string().required("Digite o comentário"),
-    // rate: Yup.string().required("Escola uma Estrela"),
-    githubuser: Yup.string(),
+    name: Yup.string()
+      .required("Digite o nome")
+      .max(25, "O nome deve ter no máximo 25 caracteres"),
+    email: Yup.string()
+      .required("Digite o email")
+      .email("Digite um email válido"),
+    comment: Yup.string()
+      .required("Digite o comentário")
+      .min(100, "O comentário deve ter no mínimo 100 caracteres")
+      .max(264, "O comentário deve ter no máximo 264 caracteres"),
+    githubuser: Yup.string()
+      .max(25, "O usuário do GitHub deve ter no máximo 25 caracteres"),
     avatar: Yup.string()
-  })
+  });
 
   const { handleSubmit, register, formState: { errors } } = useForm({
     resolver: yupResolver(validationComments)
@@ -62,46 +67,38 @@ export default function Form() {
 
 
 
-  const [isLoading, setisLoading] =useState(null)
+  const [isLoading, setisLoading] = useState(null)
 
   const onSubmit = async (data) => {
     setisLoading(true)
-    
 
-    
-    
     try {
       const { name, email, comment, avatar, rate, githubuser } = data
 
       const response = await axios.post('/api/comments/send', {
-        name, email, comment, avatar, rate, githubuser, isOfensive : formValues.isOfensive
+        name, email, comment, avatar, rate, githubuser, isOfensive: formValues.isOfensive
       });
       if (response.status === 201) {
-        toast("✅ Sucesso!")
-        console.log("oi")
-        setisLoading(false)
-        setformValues({
-          avatar: '',
-          name: '',
-          email: '',
-          comment: '',
-          rate: '',
-          githubuser: ''
-        });
+
+        setTimeout(() => {
+          setisLoading(false)
+          clearAllFiels()
+          toast("✅ Obrigado Pelo Feedback!")
+        }, 3000);
       } else {
-        toast("Falha")
+        toast("❌ Algo deu Errado , Por favor Tente novamente")
         setisLoading(false)
       }
     } catch (error) {
       console.log(error)
-      
+
     }
   };
 
 
   const handleInputsChanges = (e) => {
 
-console.log()
+    console.log()
     const { name, value } = e.target
     setformValues(prevState => ({
       ...prevState,
@@ -110,9 +107,6 @@ console.log()
 
   }
 
-  // const verifyOfensiveWords = (e) =>{
-  //   console.log(e.target.value)
-  // }
 
   const getGithubUserDetails = async (e) => {
 
@@ -125,22 +119,33 @@ console.log()
 
   }
 
-  const verifyOfensiveWords = () =>{
+  const verifyOfensiveWords = () => {
     const commentsWord = formValues.comment;
     const filterArray = commentsWord.split(" ")
     const verify = filterArray.filter((word) => badWordsArray.includes(word))
-    if(verify.length >= 2){
+    if (verify.length >= 2) {
       setformValues(prevState => ({
         ...prevState,
-        isOfensive : true
+        isOfensive: true
       }))
 
-    }else{
-           setformValues(prevState => ({
+    } else {
+      setformValues(prevState => ({
         ...prevState,
-        isOfensive : false
+        isOfensive: false
       }))
     }
+  }
+
+  const clearAllFiels = () => {
+    setformValues({
+      avatar: '',
+      name: '',
+      email: '',
+      comment: '',
+      rate: '',
+      githubuser: ''
+    });
   }
 
   return (
@@ -148,133 +153,63 @@ console.log()
       <Toaster toastOptions={{ style: { fontSize: '24px' }, success: { duration: 4000 } }} />
       <form
         className="flex justify-center gap-8"
-        //will no longer be necessary as we will use {...register} to manipulate the input value
-        // onSubmit={(e) => sendInformation(e)}
         onSubmit={handleSubmit(onSubmit)}
         onChange={handleInputsChanges}
       >
         <fieldset className="flex flex-col w-extraSmall mx-auto gap-3.5 lg:mx-0 lg:w-extraLarger">
           <div className="flex gap-4">
-            <input
-              type="text"
-              placeholder="Nome"
-              value={formValues.name || ""}
-              className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 lg:max-w-min"
-              //will no longer be necessary as we will use {...register} to manipulate the input value
-              // value={name}
-              // onChange={(e) => setName(e.target.value)}
-              {...register("name")}
+
+            <InputForm
+              inputType="text"
+              placeholderContent="Digite o seu nome"
+              inputValue={formValues.name}
+              register={register('name')}
             />
-            {errors.name && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.name.message}</span>}
 
 
-
-            <input
-              type="text"
-              placeholder="githubuser"
-              value={formValues.githubuser || ""}
-              className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 lg:max-w-min"
-              //will no longer be necessary as we will use {...register} to manipulate the input value
-              // value={name}
-              // onChange={(e) => setName(e.target.value)}
-              {...register("githubuser")}
-              onBlur={getGithubUserDetails}
-
+            <InputForm
+              inputType="text"
+              placeholderContent="githubuser"
+              inputValue={formValues.githubuser}
+              register={register('githubuser')}
+              onBlurFunction={getGithubUserDetails}
             />
-            {errors.githubuser && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.githubuser.message}</span>}
-
           </div>
 
+          {errors.name && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold flex-1">{errors.name.message}</span>}
 
-          <input
-            type="email"
-            placeholder="email@exemplo.com"
-            value={formValues.email || ""}
-            className="w-full bg-inherit h-9 rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter lg:h-14 lg:px-8 "
-            // value={mail}
-            // onChange={(e) => setMail(e.target.value)}
-            //will no longer be necessary as we will use {...register} to manipulate the input value
-            // pattern={emailRegex}
-            {...register("email")}
+          <InputForm
+            inputType="email"
+            placeholderContent="email@exemplo.com"
+            inputValue={formValues.email}
+            register={register('email')}
           />
           {errors.email && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.email.message}</span>}
-
 
           <textarea
             name=""
             id=""
             placeholder="Digite o seu comentário"
             className="w-full bg-inherit h-mini rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter resize-none lg:h-small lg:px-8 lg:pt-4"
-            // value={coment}
-            // onChange={(e) => setComent(e.target.value)}
-            //will no longer be necessary as we will use {...register} to manipulate the input value
             value={formValues.comment || ""}
             {...register("comment")}
             onBlur={verifyOfensiveWords}
           >
-
           </textarea>
 
-        <section>
-          
-           <span className={clsx(formValues.comment.length >= 230 ? 'text-red-400' : 'text-white-1', 'font-thin')}>{formValues.comment.length}/264</span> 
-          
-        </section>
+
+          <span className={clsx(formValues.comment.length >= 230 ? 'text-red-400' : 'text-white-1', 'font-thin')}>{formValues.comment.length}/264</span>
+
+
 
 
           {errors.comment && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.comment.message}</span>}
 
-          {/* <fieldset className="flex mr-auto py-4">
-            {
-              [...Array(5)].map((star, index) => {
-                const currencyStar = index + 1
-                return (
-                  <label key={index}
-                    htmlFor={currencyStar}
-                    title={`Classificar o Projeto em ${currencyStar}`}
-                    className="cursor-pointer"
+          <fieldset className="flex gap-4 h-9 font-inter w-52 self-end">
+            <SubmitButtonConfirm isLoading={isLoading} />
+            <ResetButton cleanData={clearAllFiels} />
+          </fieldset>
 
-                  >
-                    <input type="radio"
-                      id={currencyStar}
-                      className="hidden"
-                      onClick={() => sethover(currencyStar)}
-                      value={currencyStar}
-                      name="rate"
-                      onChange={handleInputsChanges}
-                      {...register('rate')}
-                    />
-
-                    {currencyStar <= (star | hover) ?
-                      <FaStar className="text-yellow-400" /> :
-                      <FaRegStar className="text-yellow-400" strokeWidth={0.2} />}
-                  </label>
-                )
-              })
-            }
-          </fieldset> */}
-
-          <div className="flex gap-4 h-9 font-inter lg:hidden">
-          <button
-              type="submit"
-              className="flex items-center gap-2 rounded-lg w-full h-full dark:text-white-1 cursor-pointer px-2.5 dark:bg-blue-1 font-inter"
-            >
-              Confirmar
-              
-              {
-                isLoading && <span className="flex items-center gap-1" >Enviando... <FaSpinner className="animation animate-spin" /></span>
-              }
-
-            </button>
-            <button
-              type="button"
-              className="rounded-lg w-full h-full dark:text-white-1 cursor-pointer border border-blue-1 p-2.5 flex items-center justify-center font-inter"
-             
-            >
-              Limpar
-x            </button>
-          </div>
-          <span className="text-white-1">{isLoading && "Carregando" }</span>
         </fieldset>
 
         <section className="hidden lg:flex flex-col w-hiper h-auto bg-purple-3 dark:bg-purple-2 rounded-2xl p-9 gap-4">
@@ -286,16 +221,16 @@ x            </button>
             value={formValues.comment ? `${formValues.comment}` : `"${staticData.coment}"`}
             disabled
           >
-            
+
           </textarea>
-          
+
 
           <div className="flex items-center gap-2.5">
             <figure className="h-14 w-14 rounded-full bg-black-1 grid place-content-center overflow-hidden">
 
               {
                 formValues.avatar.length > 0 ? <img src={formValues.avatar} alt="" /> :
-                  <BiUser className="text-zinc-200" size={32} />
+                  <FaUser className="text-zinc-200" size={32} />
 
               }
 
@@ -304,38 +239,19 @@ x            </button>
               <h3 className="text-desktop-extraSmall font-bold">
                 {formValues.name ? formValues.name : staticData.name}
               </h3>
-              <h4 className="text-desktop-mini">{formValues.githubuser ? formValues.githubuser : staticData.name}</h4>
+              <h4 className="text-desktop-mini">{formValues.githubuser || formValues.name ? formValues.githubuser : staticData.name}</h4>
 
 
             </div>
           </div>
 
-          <div className="flex gap-4 h-9 font-inter w-52 self-end">
+          <fieldset className="flex gap-4 h-9 font-inter w-52 self-end md:hidden">
+            <SubmitButtonConfirm isLoading={isLoading} />
+            <ResetButton cleanData={clearAllFiels} />
 
-          <button
-              type="submit"
-              className="flex items-center gap-2 rounded-lg w-full h-full dark:text-white-1 cursor-pointer px-2.5 dark:bg-blue-1 font-inter"
-              
-            >
-              Confirmar
-              
-              {
-                isLoading && <span className="flex items-center gap-1" >Enviando... <FaSpinner className="animation animate-spin" /></span>
-              }
-
-            </button>
-
-
-            <button
-
-              type="button"
-              className="rounded-lg w-full h-9 text-purple-1 dark:text-white-1 cursor-pointer border border-blue-1 p-2.5 flex items-center justify-center font-inter"
-            >
-              <BiEraser /> Limpar
-            </button>
-          </div>
+          </fieldset>
         </section>
-  
+
 
       </form>
 
