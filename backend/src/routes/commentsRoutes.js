@@ -5,6 +5,6 @@ const { createAnewComment, getAllComments } = require('../controller/commentscon
 const router = express.Router();
 
 router.post('/send', createAnewComment);
-router.get('/getcomments', getAllComments)
+router.get('/', getAllComments)
 
 module.exports = router;
