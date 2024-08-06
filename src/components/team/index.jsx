@@ -3,7 +3,7 @@ import useFetchData from '../../controller/useFetchData';
 import Loader from './loader';
 import TeamCard from './TeamCard';
 
-const Team = () => {
+export const Team = () => {
     const { data, error, loading } = useFetchData('https://sistema-cadastro-dados-portifolio-front-end-fusion.vercel.app/api/EagleCoders');
 
     if (loading) return <Loader />;
@@ -20,4 +20,3 @@ const Team = () => {
   )
 }
 
-export default Team
