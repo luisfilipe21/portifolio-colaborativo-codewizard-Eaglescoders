@@ -41,17 +41,10 @@ export default function Comments() {
               ref={scroll}
             >
               <div className="flex flex-col items-center gap-8 lg:flex-row  lg:pb-16 lg:w-fit">
-                {coments.map((coment) => {
-                  return (
-                    <Card
-                      key={coment.id}
-                      text={coment.coment}
-                      name={coment.name}
-                      func={coment.function}
-                      src={coment.img}
-                    />
-                  );
-                })}
+       
+                    <Card />
+                  
+              
               </div>
             </div>
 
