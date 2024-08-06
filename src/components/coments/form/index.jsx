@@ -75,7 +75,7 @@ export default function Form() {
     try {
       const { name, email, comment, avatar, rate, githubuser } = data
 
-      const response = await axios.post(`http://localhost:3001/api/comments/send`, {
+      const response = await axios.post(`http://localhost:3001/comments/send`, {
         name, email, comment, avatar, rate, githubuser, isOfensive: formValues.isOfensive
       });
       if (response.status === 201) {
@@ -91,6 +91,7 @@ export default function Form() {
       }
     } catch (error) {
       console.log(error)
+      toast("❌ Algo deu Errado , Por favor Tente novamente")
 
     }
   };
