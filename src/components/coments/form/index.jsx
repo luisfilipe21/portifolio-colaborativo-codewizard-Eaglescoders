@@ -10,20 +10,13 @@ import { InputForm } from "./input.jsx";
 import { SubmitButtonConfirm } from "./submitbutton.jsx";
 import { ResetButton } from "./Resetbutton.jsx";
 import { FaUser } from "react-icons/fa";
+import { getGithubUserDetails } from "../../../controller/getgithubusers.js";
+import { textFormater } from "../../../utils/textformatter.js";
+import { verifyOfensiveWords } from "../../../utils/verifybadwords.js";
+import { AvatarGithub } from "../../../hooks/avatar.jsx";
 
 
 export default function Form() {
-
-  const [star, setstar] = useState();
-  const [hover, sethover] = useState();
-
-  const getBadWords = () => {
-    const words = import.meta.env.VITE_BAD_WORDS || ''
-    return words.split(',');
-  }
-  const badwords = getBadWords()
-  const badWordsArray = []
-  badWordsArray.push(...badwords)
 
 
   const [formValues, setformValues] = useState({
@@ -97,46 +90,45 @@ export default function Form() {
   };
 
 
-  const handleInputsChanges = (e) => {
 
-    console.log()
+  const handleInputsChanges = (e) => {
     const { name, value } = e.target
     setformValues(prevState => ({
       ...prevState,
-      [name]: value,
+      [name]: name === 'githubuser' ? textFormater(value) : value,
     }))
 
   }
 
-
-  const getGithubUserDetails = async (e) => {
-
-    const response = await axios.get(`https://api.github.com/users/${formValues.githubuser}`)
-    const avatar = response.data.avatar_url
+  const githubavatar = async (e) => {
     setformValues(prevState => ({
       ...prevState,
-      avatar: avatar
+      avatar: "loading"
     }))
 
+    setTimeout(() => {
+      getGithubUserDetails(formValues.githubuser).then((avatarRes) =>
+        setformValues(prevState => ({
+          ...prevState,
+          avatar: avatarRes
+        }))
+      ).catch(
+        setformValues(prevState => ({
+          ...prevState,
+          avatar: 'notfound'
+        }))
+      )
+    }, 2000)
+
   }
 
-  const verifyOfensiveWords = () => {
-    const commentsWord = formValues.comment;
-    const filterArray = commentsWord.split(" ")
-    const verify = filterArray.filter((word) => badWordsArray.includes(word))
-    if (verify.length >= 2) {
-      setformValues(prevState => ({
-        ...prevState,
-        isOfensive: true
-      }))
-
-    } else {
-      setformValues(prevState => ({
-        ...prevState,
-        isOfensive: false
-      }))
-    }
+  const verifyText = (value) => {
+    setformValues(prevState => ({
+      ...prevState,
+      isOfensive: verifyOfensiveWords(value)
+    }))
   }
+
 
   const clearAllFiels = () => {
     setformValues({
@@ -148,6 +140,8 @@ export default function Form() {
       githubuser: ''
     });
   }
+
+  console.log(formValues.isOfensive)
 
   return (
     <>
@@ -173,7 +167,7 @@ export default function Form() {
               placeholderContent="githubuser"
               inputValue={formValues.githubuser}
               register={register('githubuser')}
-              onBlurFunction={getGithubUserDetails}
+              onBlurFunction={githubavatar}
             />
           </div>
 
@@ -194,15 +188,11 @@ export default function Form() {
             className="w-full bg-inherit h-mini rounded-lg border border-blue-1 p-2.5 outline-none text-purple-1 dark:text-white-1 font-inter resize-none lg:h-small lg:px-8 lg:pt-4"
             value={formValues.comment || ""}
             {...register("comment")}
-            onBlur={verifyOfensiveWords}
+            onBlur={() => verifyText(formValues.comment)}
           >
           </textarea>
 
-
           <span className={clsx(formValues.comment.length >= 230 ? 'text-red-400' : 'text-white-1', 'font-thin')}>{formValues.comment.length}/264</span>
-
-
-
 
           {errors.comment && <span className="text-red-600 px-4 bg-red-300 py-2 font-bold">{errors.comment.message}</span>}
 
@@ -229,11 +219,8 @@ export default function Form() {
           <div className="flex items-center gap-2.5">
             <figure className="h-14 w-14 rounded-full bg-black-1 grid place-content-center overflow-hidden">
 
-              {
-                formValues.avatar.length > 0 ? <img src={formValues.avatar} alt="" /> :
-                  <FaUser className="text-zinc-200" size={32} />
+              <AvatarGithub avatarUrl={formValues.avatar} />
 
-              }
 
             </figure>
             <div className="flex flex-col text-purple-1 dark:text-white-1">
