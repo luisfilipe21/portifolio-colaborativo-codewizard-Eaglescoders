@@ -64,12 +64,13 @@ export default function Form() {
 
   const onSubmit = async (data) => {
     setisLoading(true)
+    console.log(data)
 
     try {
-      const { name, email, comment, avatar, rate, githubuser } = data
+      const { name, email, comment, githubuser } = data
 
       const response = await axios.post(`http://localhost:3001/comments/send`, {
-        name, email, comment, avatar, rate, githubuser, isOfensive: formValues.isOfensive
+        name, email, comment, avatar : formValues.avatar, githubuser, isOfensive: formValues.isOfensive
       });
       if (response.status === 201) {
 
@@ -83,7 +84,6 @@ export default function Form() {
         setisLoading(false)
       }
     } catch (error) {
-      console.log(error)
       toast("❌ Algo deu Errado , Por favor Tente novamente")
 
     }
@@ -141,7 +141,6 @@ export default function Form() {
     });
   }
 
-  console.log(formValues.isOfensive)
 
   return (
     <>
