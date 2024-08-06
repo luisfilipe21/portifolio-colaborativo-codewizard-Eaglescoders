@@ -1,10 +1,22 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import CallToActions from "./call-to-actions";
 import Card from "./card";
 import Form from "./form";
-import coments from "./data/coments.json";
+import axios from "axios";
 
 export default function Comments() {
+
+  const [allComments, setallComments] = useState([])
+  useEffect(()=>{
+    const getAllComments = async () =>{
+      const response = await axios.get('http://localhost:3001/comments/get')
+      const dataResponse = await response.data ;
+      setallComments(dataResponse)
+    }
+    getAllComments()
+  },[])
+  console.log(allComments)
+
   const [selectedButton01, setSelectedButton01] = useState(true);
   const [selectedButton02, setSelectedButton02] = useState(false);
   const scroll = useRef();
@@ -41,10 +53,17 @@ export default function Comments() {
               ref={scroll}
             >
               <div className="flex flex-col items-center gap-8 lg:flex-row  lg:pb-16 lg:w-fit">
-       
-                    <Card />
-                  
-              
+                   {
+                      allComments.map(({name, githubuser, avatar, comment}, index) =>(
+
+                        <Card name={name} 
+                        githubuser={githubuser} 
+                        avatar={avatar} 
+                        comment={comment} />
+                        
+
+                    ))
+                   }
               </div>
             </div>
 
