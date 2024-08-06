@@ -6,3 +6,4 @@ export const getGithubUserDetails = async (username) => {
   return avatar
 
 }
+
