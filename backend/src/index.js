@@ -16,9 +16,6 @@ app.use(express.json());
 
 app.use('/comments', router);
 
-const urlorigin = process.env.VITE_API_URL
-
-
 app.use(cors({
   origin: "*",
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
