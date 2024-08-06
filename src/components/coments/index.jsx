@@ -9,7 +9,7 @@ export default function Comments() {
   const [allComments, setallComments] = useState([])
   useEffect(()=>{
     const getAllComments = async () =>{
-      const response = await axios.get('http://localhost:3001/comments/get')
+      const response = await axios.get('http://localhost:3001/comments/get/')
       const dataResponse = await response.data ;
       setallComments(dataResponse)
     }
@@ -56,7 +56,8 @@ export default function Comments() {
                    {
                       allComments.map(({name, githubuser, avatar, comment}, index) =>(
 
-                        <Card name={name} 
+                        <Card key={name}
+                        name={name} 
                         githubuser={githubuser} 
                         avatar={avatar} 
                         comment={comment} />

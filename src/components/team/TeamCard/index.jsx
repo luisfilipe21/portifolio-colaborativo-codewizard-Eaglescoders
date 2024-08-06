@@ -3,7 +3,7 @@ import githubIcon from '../../../assets/team_icons/github.png';
 import linkedinIcon from '../../../assets/team_icons/linkedin.png';
 import instagramIcon from '../../../assets/team_icons/instagram.png';
 import facebookIcon from '../../../assets/team_icons/facebook.png';
-import TeamButton from '../TeamButton';
+import {TeamButton} from '../TeamButton';
 
 const TeamCard = ({member}) => {
   const [showProjects, setShowProjects] = useState(false);
