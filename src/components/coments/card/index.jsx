@@ -10,6 +10,7 @@ export default function Card({ text, name, func, src }) {
         <img src="./src/assets/icons/star-full.svg" alt="" />
         <img src="./src/assets/icons/star-full.svg" alt="" />
       </div>
+      
       <p className="text-mobile-extraMini font-bold leading-4 text-gray-1 lg:leading-desktop-larger lg:text-desktop-extraMini">
         &#34;{text}&#34;
       </p>
