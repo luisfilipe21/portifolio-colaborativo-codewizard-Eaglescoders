@@ -23,8 +23,6 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <AboutProject />
       <Comments />
       <Footer />
-      <main />
-
     </main>
   </React.StrictMode>
 );
