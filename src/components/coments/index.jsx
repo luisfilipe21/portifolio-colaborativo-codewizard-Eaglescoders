@@ -5,17 +5,15 @@ import Form from "./form";
 import axios from "axios";
 
 export default function Comments() {
-
-  const [allComments, setallComments] = useState([])
-  useEffect(()=>{
-    const getAllComments = async () =>{
-      const response = await axios.get('http://localhost:3001/comments/get/')
-      const dataResponse = await response.data ;
-      setallComments(dataResponse)
-    }
-    getAllComments()
-  },[])
-  console.log(allComments)
+  const [allComments, setallComments] = useState([]);
+  useEffect(() => {
+    const getAllComments = async () => {
+      const response = await axios.post(import.meta.env.VITE_API_URL_GET);
+      const dataResponse = await response.data;
+      setallComments(dataResponse);
+    };
+    getAllComments();
+  }, []);
 
   const [selectedButton01, setSelectedButton01] = useState(true);
   const [selectedButton02, setSelectedButton02] = useState(false);
@@ -53,18 +51,17 @@ export default function Comments() {
               ref={scroll}
             >
               <div className="flex flex-col items-center gap-8 lg:flex-row  lg:pb-16 lg:w-fit">
-                   {
-                      allComments.map(({name, githubuser, avatar, comment}, index) =>(
-
-                        <Card key={name}
-                        name={name} 
-                        githubuser={githubuser} 
-                        avatar={avatar} 
-                        comment={comment} />
-                        
-
-                    ))
-                   }
+                {allComments.map(
+                  ({ name, githubuser, avatar, comment }, index) => (
+                    <Card
+                      key={comment}
+                      name={name}
+                      githubuser={githubuser}
+                      avatar={avatar}
+                      comment={comment}
+                    />
+                  )
+                )}
               </div>
             </div>
 
