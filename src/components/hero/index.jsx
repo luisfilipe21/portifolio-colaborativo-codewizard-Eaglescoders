@@ -12,7 +12,7 @@ export const HeroSection = () => {
 
   return (
     <section
-      className="w-full self-center gap-10  pb-16 items-center px-1 justify-center flex  flex-row items-center justify-between max-w-[1300px] flex-col-reverse
+      className="w-full self-center gap-10  pb-16 px-1  flex items-center justify-between max-w-[1300px] flex-col-reverse
       lg:flex-row
       lg:pb-40 py-20
       lg:px-10
@@ -66,7 +66,7 @@ export const HeroSection = () => {
       </div>
 
       <div className="flex flex-col justify-center md:gap-4">
-        <div className="flex flex-col justify-center items-center md:items-end md:items-center">
+        <div className="flex flex-col justify-center items-center md:items-center">
           <p className="font-inconsolata text-gray-0 font-medium text-xl md:text-sizeParagraph">
             projeto
           </p>

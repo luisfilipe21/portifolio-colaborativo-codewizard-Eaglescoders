@@ -12,8 +12,6 @@ import LingAndTech from "./components/ling-and-tech/LingAndTech";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-
     <main className="flex flex-col bg-purple-1"> {/* Não mexer aqui por favor! */}
       <Header />
       <HeroSection />
@@ -24,5 +22,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       <Comments />
       <Footer />
     </main>
-  </React.StrictMode>
 );

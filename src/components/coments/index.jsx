@@ -15,7 +15,6 @@ export default function Comments() {
     }
     getAllComments()
   },[])
-  console.log(allComments)
 
   const [selectedButton01, setSelectedButton01] = useState(true);
   const [selectedButton02, setSelectedButton02] = useState(false);
@@ -56,7 +55,7 @@ export default function Comments() {
                    {
                       allComments.map(({name, githubuser, avatar, comment}, index) =>(
 
-                        <Card key={name}
+                        <Card key={comment}
                         name={name} 
                         githubuser={githubuser} 
                         avatar={avatar} 

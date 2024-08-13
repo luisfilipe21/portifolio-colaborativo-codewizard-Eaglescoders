@@ -64,7 +64,7 @@ export default function Form() {
 
   const onSubmit = async (data) => {
     setisLoading(true)
-    console.log(data)
+    // console.log(data)
 
     try {
       const { name, email, comment, githubuser } = data

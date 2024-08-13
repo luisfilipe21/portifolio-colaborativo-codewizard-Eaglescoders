@@ -4,9 +4,11 @@ import linkedinIcon from '../../../assets/team_icons/linkedin.png';
 import instagramIcon from '../../../assets/team_icons/instagram.png';
 import facebookIcon from '../../../assets/team_icons/facebook.png';
 import {TeamButton} from '../TeamButton';
+import { FaHtml5 } from 'react-icons/fa';
 
 const TeamCard = ({member}) => {
   const [showProjects, setShowProjects] = useState(false);
+
 
   return (
     <div className="px-7 md:px-[106px] mb-36">
@@ -14,6 +16,7 @@ const TeamCard = ({member}) => {
         <img src={member?.githubImgUrl} alt="team member? picture" className="w-36 md:w-64 h-auto" />
         <div className="flex flex-col justify-around items-center lg:items-start gap-3">
           <h3 className="text-nameMember-0 text-sizeTitle">{member?.name}</h3>
+     
           <span className="text-white-1 text-sizeParagraph">{member?.subTitle}</span>
           <ul className="flex gap-5 mb-2">
             <li>
