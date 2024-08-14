@@ -5,12 +5,13 @@ import Form from "./form";
 import axios from "axios";
 
 export default function Comments() {
-  const [allComments, setallComments] = useState([]);
+  const [allComments, setAllComments] = useState([]);
+  
   useEffect(() => {
     const getAllComments = async () => {
       const response = await axios.post(import.meta.env.VITE_API_URL_GET);
       const dataResponse = await response.data;
-      setallComments(dataResponse);
+      setAllComments(dataResponse);
     };
     getAllComments();
   }, []);
@@ -50,7 +51,7 @@ export default function Comments() {
               className="max-w-extralarger mx-auto lg:overflow-hidden scroll-smooth extraLg:max-w-hiper"
               ref={scroll}
             >
-              <div className="flex flex-col items-center gap-8 lg:flex-row  lg:pb-16 lg:w-fit">
+              <div className="flex flex-col items-center gap-8 lg:flex-row lg:pb-16 lg:w-fit">
                 {allComments.map(
                   ({ name, githubuser, avatar, comment }, index) => (
                     <Card
