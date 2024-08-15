@@ -1,4 +1,4 @@
-import github from "../../assets/github.svg";
+import github from "../../public/github.svg";
 import useFetchData from "../../controller/useFetchData";
 
 export const Footer = () => {

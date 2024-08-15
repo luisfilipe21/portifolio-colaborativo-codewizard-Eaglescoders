@@ -1,13 +1,13 @@
 import Card from "./card/index";
 
-import HtmlIcon from "../../assets/html-icon.svg";
-import CssIcon from "../../assets/css-icon.svg";
-import JavaScriptIcon from "../../assets/javascript-icon.svg";
-import ReactIcon from "../../assets/react-icon.svg";
-import TailwindCssIcon from "../../assets/tailwind-icon.svg";
-import GitHubIcon from "../../assets/github-icon.svg";
-import GitIcon from "../../assets/git-icon.svg";
-import VscodeIcon from "../../assets/vscode-icon.svg";
+import HtmlIcon from "../../public/html-icon.svg";
+import CssIcon from "../../public/css-icon.svg";
+import JavaScriptIcon from "../../public/javascript-icon.svg";
+import ReactIcon from "../../public/react-icon.svg";
+import TailwindCssIcon from "../../public/tailwind-icon.svg";
+import GitHubIcon from "../../public/github-icon.svg";
+import GitIcon from "../../public/git-icon.svg";
+import VscodeIcon from "../../public/vscode-icon.svg";
 
 function LingAndTech() {
   return (

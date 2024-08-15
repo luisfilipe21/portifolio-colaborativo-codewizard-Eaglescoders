@@ -1,11 +1,14 @@
 import PropTypes from "prop-types";
 
 const Card = ({ title, text, icon }) => {
+
+  
+
   return (
     <div className="bg-purple-2 drop-shadow-none rounded-lg flex flex-col gap-2 p-8   w-medium h-extraSmall lg:gap-4 lg:h-larger">
       <h2 className="text-base font-bold flex gap-2.5  font-mulish text-gray-2 lg:text-lg lg:gap-1.5">
         <img
-          src={`./src/assets/icons/${icon}.svg`}
+          src={`./src/public/assets/icons/${icon}`}
           alt="Icone do cartão"
           className="h-6"
         />

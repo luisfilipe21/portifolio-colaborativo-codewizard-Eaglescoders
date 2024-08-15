@@ -1,7 +1,7 @@
-import react from "../../assets/react.svg";
-import tailwind from "../../assets/tailwind.svg";
-import js from "../../assets/js.svg";
-import vite from "../../assets/vite.svg";
+import react from "../../public/react.svg";
+import tailwind from "../../public/tailwind.svg";
+import js from "../../public/js.svg";
+import vite from "../../public/vite.svg";
 
 import useFetchData from "../../controller/useFetchData";
 

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import githubIcon from '../../../assets/team_icons/github.png';
-import linkedinIcon from '../../../assets/team_icons/linkedin.png';
-import instagramIcon from '../../../assets/team_icons/instagram.png';
-import facebookIcon from '../../../assets/team_icons/facebook.png';
+import githubIcon from '../../../public/assets/team_icons/github.png';
+import linkedinIcon from '../../../public/assets/team_icons/linkedin.png';
+import instagramIcon from '../../../public/assets/team_icons/instagram.png';
+import facebookIcon from '../../../public/assets/team_icons/facebook.png';
 import {TeamButton} from '../TeamButton';
 import { FaHtml5 } from 'react-icons/fa';
 

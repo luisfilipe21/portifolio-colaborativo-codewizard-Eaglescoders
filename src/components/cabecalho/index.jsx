@@ -1,6 +1,6 @@
-import github from "../../assets/github.svg";
-import sol from "../../assets/sol.svg";
-import lista from "../../assets/lista.svg";
+import github from "../../public/github.svg";
+import sol from "../../public/sol.svg";
+import lista from "../../public/lista.svg";
 import clsx from "clsx";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
@@ -15,7 +15,7 @@ export const Header = () => {
   const openAndClose = () => {
     setList(!list);
   };
- 
+
 
   return (
     <header
@@ -68,7 +68,7 @@ export const Header = () => {
         </ul>
       )}
       {list ? (
-        <IoClose color="white" size={35} className="cursor-pointer absolute  right-8 md:hidden" onClick={openAndClose}/>
+        <IoClose color="white" size={35} className="cursor-pointer absolute  right-8 md:hidden" onClick={openAndClose} />
       ) : (
         <img
           src={lista}
