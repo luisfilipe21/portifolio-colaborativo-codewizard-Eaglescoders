@@ -35,6 +35,7 @@ export const Footer = () => {
                 <div className="flex w-24 md:w-full md:justify-end md:max-w-60">
                     <div className="flex h-max box-border gap-8 md:flex-col">
                         <figure className="flex flex-wrap items-center h-12 relative md:flex-nowrap md:w-full md:max-w-60">
+<<<<<<< Updated upstream
                             <img src={charmander} alt="Membro da equipe" className="w-8 rounded-full md:z-0 md:absolute md:right-[105px] lg:w-12 lg:right-40 " />
                             <img src={charmander} alt="Membro da equipe" className="w-8 rounded-full md:z-10 md:absolute md:right-[85px] lg:w-12 lg:right-32 " />
                             <img src={charmander} alt="Membro da equipe" className="w-8 rounded-full md:z-20 md:absolute md:right-[65px] lg:w-12 lg:right-24 " />
@@ -50,6 +51,34 @@ export const Footer = () => {
                             <p className="font-mulish text-white text-xs">Nico silva - WebEnginer</p>
                             <p className="font-mulish text-white text-xs">Ricardo gomes - webdesigner</p>
                             <p className="font-mulish text-white text-xs">Jonh Doe - Webdevelopemet</p>
+=======
+
+                            {data?.people.map((integrante, index) =>
+                                <img
+                                    className={`flex items-center w-8 rounded-full md:zIndex${index} md:absolute md:marginLeft${index} lg:w-12 lg:left-0`}
+                                    style={{
+                                        zIndex: index,
+                                        marginLeft: `${index * 32}px`,
+                                        leftLane: `${index * 16}px`
+                                    }}
+
+                                    key={integrante.id}
+                                    src={integrante.githubImgUrl}
+                                    alt={integrante.name}
+                                    title={integrante.name}
+                                />
+                            )}
+                        </figure>
+
+                        <div className="hidden gap-0.5 md:inline-flex md:flex-col md:max-w-60 justify-center text-white-1">
+
+                            {data?.people.map((integrante) =>
+                                <p
+                                    className="font-mulish text-xs"
+                                    key={integrante.id}>
+                                    {integrante.name} - {integrante.subTitle}
+                                </p>)}
+>>>>>>> Stashed changes
                         </div>
                     </div>
                 </div>
