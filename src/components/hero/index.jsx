@@ -7,7 +7,7 @@ import useFetchData from "../../controller/useFetchData";
 
 export const HeroSection = () => {
   const { data } = useFetchData(
-    "https://sistema-cadastro-dados-portifolio-front-end-fusion.vercel.app/api/EagleCoders"
+    import.meta.env.VITE_API_URL_GET_DADOS_CADASTRO
   );
 
   return (

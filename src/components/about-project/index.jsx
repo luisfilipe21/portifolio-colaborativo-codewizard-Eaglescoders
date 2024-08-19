@@ -1,5 +1,5 @@
 import { SectionAbout } from "./section-about";
-// after about
+
 
 import imgBag from "../../assets/img-bag.png";
 import imgTarget from "../../assets/img-target.png";
