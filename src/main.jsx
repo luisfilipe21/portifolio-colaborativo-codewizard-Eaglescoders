@@ -12,7 +12,7 @@ import LingAndTech from "./components/ling-and-tech/LingAndTech";
 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-    <main className="flex flex-col bg-purple-1"> {/* Não mexer aqui por favor! */}
+    <main className="flex flex-col bg-white-2 dark:bg-purple-1"> {/* Não mexer aqui por favor! */}
       <Header />
       <HeroSection />
       <Benefits />
