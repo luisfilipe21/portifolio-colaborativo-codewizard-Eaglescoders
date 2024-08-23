@@ -1,11 +1,11 @@
-import github from "../../assets/github.svg";
+import github from "../../public/github.svg";
 import useFetchData from "../../controller/useFetchData";
 
 export const Footer = () => {
     const { data } = useFetchData('https://sistema-cadastro-dados-portifolio-front-end-fusion.vercel.app/api/EagleCoders');
 
     return (
-        <footer className="bg-rodape-0 w-full rounded-t-3xl bg-purple-2">
+        <footer className="bg-rodape-0 w-full rounded-t-3xl dark:bg-purple-2 bg-black-1">
             <div className="flex p-8 justify-between ">
 
                 <div className="flex flex-col md:flex-row md:mr-4">

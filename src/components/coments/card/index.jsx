@@ -12,8 +12,8 @@ export default function Card({ name, githubuser, avatar, comment }) {
   // console.log(avatar);
 
   return (
-    <div className=" bg-green-200 flex flex-col gap-8 p-9 rounded-2xl  dark:bg-purple-2 w-small lg:w-extraMedium ">
-      <p className="text-mobile-extraMini font-bold leading-4 h-full lg:min-h-28 lg:max-h-32 relative text-gray-1 lg:leading-desktop-larger lg:text-desktop-extraMini">
+    <div className="dark:bg-purple-2 bg-white-1 flex flex-col gap-8 p-9 rounded-2xl w-small lg:w-extraMedium shadow-cardShadow">
+      <p className="text-mobile-extraMini font-bold leading-4 h-full lg:min-h-28 lg:max-h-32 relative text-purple-1 dark:text-gray-1 lg:leading-desktop-larger lg:text-desktop-extraMini">
 
         &#34;{text}&#34;
 

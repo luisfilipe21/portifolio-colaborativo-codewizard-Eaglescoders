@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode:"class",
   theme: {
     extend: {
       fontFamily: {
@@ -25,6 +26,7 @@ export default {
           3: "#e1e1e1",
           4: "#767676",
           5: "#454343",
+          6: "#CCCCCC"
         },
         white: {
           1: "#ffffff",
@@ -169,6 +171,9 @@ export default {
       },
       margin: {
         miniNegativo: "-15px",
+      },
+      boxShadow:{
+        cardShadow: "0px 0px 10px 3px rgba(0,0,0,0.25)"
       },
     },
   },
