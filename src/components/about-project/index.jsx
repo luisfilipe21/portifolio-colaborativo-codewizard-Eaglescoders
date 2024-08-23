@@ -31,16 +31,13 @@ export function AboutProject() {
     ],
   };
 
-  return (
-    <section className="min-h-screen min-w-screen flex flex-col text-center px-7 md:px-[106px] bg-[#0F0920] text-white-1 gap-11 font-mulish">
-      <header className="w-[81%] mx-auto flex flex-col gap-8 md:gap-20">
-        <h2 className="text-[28px] md:text-5xl md:leading-7 font-bold">
-          {projectDetails.title}
-        </h2>
-        <p className="text-sm md:text-[22px] md:px-5">
-          {projectDetails.description}
-        </p>
-      </header>
+
+    return(
+        <section className="min-h-screen min-w-screen flex flex-col text-center px-7 md:px-[106px] text-purple-1 dark:text-white-1 gap-11 font-mulish">
+            <header className="w-[81%] mx-auto flex flex-col gap-8 md:gap-20">
+                <h2 className="text-[28px] md:text-5xl md:leading-7 font-bold">{projectDetails.title}</h2>
+                <p className="text-sm md:text-[22px] md:px-5">{projectDetails.description}</p>
+            </header>
 
       <section className="flex flex-col gap-14">
         {projectDetails.sections.map((section, index) => (

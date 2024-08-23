@@ -1,11 +1,19 @@
-import react from "../../assets/react.svg";
-import tailwind from "../../assets/tailwind.svg";
-import js from "../../assets/js.svg";
-import vite from "../../assets/vite.svg";
+import react from "../../public/react.svg";
+import tailwind from "../../public/tailwind.svg";
+import js from "../../public/js.svg";
+import vite from "../../public/vite.svg";
+import reactB from "../../public/react-dark.svg";
+import tailwindB from "../../public/tailwind-dark.svg";
+import jsB from "../../public/js-dark.svg";
+import viteB from "../../public/vite-dark.svg";
 
 import useFetchData from "../../controller/useFetchData";
+import { useDarkMode } from "../../model/darkMode";
 
 export const HeroSection = () => {
+
+  const { darkMode } = useDarkMode();
+
   const { data } = useFetchData(
     import.meta.env.VITE_API_URL_GET_DADOS_CADASTRO
   );
@@ -67,23 +75,50 @@ export const HeroSection = () => {
 
       <div className="flex flex-col justify-center md:gap-4">
         <div className="flex flex-col justify-center items-center md:items-center">
-          <p className="font-inconsolata text-gray-0 font-medium text-xl md:text-sizeParagraph">
-            projeto
-          </p>
-          <h2 className="font-zen font-normal text-white text-[26px]  md:text-sizeTitle text-gray-0 ">
-            Frontend Fusion
-          </h2>
-          <p className="font-inconsolata text-gray-0 text-lg lg:text-sizeParagraph">
-            Codifique o seu futuro hoje!
-          </p>
+          {darkMode ?
+            <>
+              <p className="font-inconsolata text-gray-0 font-medium text-xl md:text-sizeParagraph">
+                projeto
+              </p>
+              <h2 className="font-zen font-normal text-white text-[26px]  md:text-sizeTitle text-gray-0 ">
+                Frontend Fusion
+              </h2>
+              <p className="font-inconsolata text-gray-0 text-lg lg:text-sizeParagraph">
+                Codifique o seu futuro hoje!
+              </p>
+            </>
+            :
+            <>
+              <p className="font-inconsolata text-purple-2 font-medium text-xl md:text-sizeParagraph">
+                projeto
+              </p>
+              <h2 className="font-zen font-normal text-white text-[26px]  md:text-sizeTitle text-purple-2 ">
+                Frontend Fusion
+              </h2>
+              <p className="font-inconsolata text-purple-2 text-lg lg:text-sizeParagraph">
+                Codifique o seu futuro hoje!
+              </p>
+            </>}
         </div>
 
-        <div className="flex mt-6 gap-8 items-center self-center ">
-          <img src={react} className="w-10 md:w-14" />
-          <img src={vite} className="w-10 md:w-14" />
-          <img src={js} className="w-10 md:w-14" />
-          <img src={tailwind} className="w-10 md:w-14" />
-        </div>
+        {darkMode ?
+          <>
+            <div className="flex mt-6 gap-8 items-center self-center ">
+              <img src={react} className="w-10 md:w-14" />
+              <img src={vite} className="w-10 md:w-14" />
+              <img src={js} className="w-10 md:w-14" />
+              <img src={tailwind} className="w-10 md:w-14" />
+            </div>
+          </>
+          :
+          <>
+            <figure className="flex mt-6 gap-8 items-center self-center ">
+              <img src={reactB} className="w-10 md:w-14" />
+              <img src={viteB} className="w-10 md:w-14" />
+              <img src={jsB} className="w-10 md:w-14" />
+              <img src={tailwindB} className="w-10 md:w-14" />
+            </figure>
+          </>}
       </div>
     </section>
   );
