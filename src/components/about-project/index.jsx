@@ -1,4 +1,5 @@
 import { SectionAbout } from "./section-about";
+// after about
 
 
 export function AboutProject(){
@@ -28,7 +29,7 @@ export function AboutProject(){
       };
 
     return(
-        <section className="min-h-screen min-w-screen flex flex-col text-center px-7 md:px-[106px] bg-[#0F0920] text-white gap-11 font-mulish">
+        <section className="min-h-screen min-w-screen flex flex-col text-center px-7 md:px-[106px] text-purple-1 dark:text-white-1 gap-11 font-mulish">
             <header className="w-[81%] mx-auto flex flex-col gap-8 md:gap-20">
                 <h2 className="text-[28px] md:text-5xl md:leading-7 font-bold">{projectDetails.title}</h2>
                 <p className="text-sm md:text-[22px] md:px-5">{projectDetails.description}</p>
@@ -45,11 +46,11 @@ export function AboutProject(){
                 ))}
             </section>
 
-            <footer className="w-[90%] md:w-[65%] flex flex-col items-center justify-center gap-11 mx-auto">
+            <footer className="w-[90%] md:w-[65%] flex flex-col items-center justify-center gap-11 mx-auto mt-20 mb-10">
                 <h2 className="text-base md:text-[32px]">Estamos ansiosos para receber sua inscrição e dar as boas-vindas a você em nossa comunidade!</h2>
 
                 <button className="px-9 md:px-12 py-[18px] md:py-4 bg-[#16C586] md:bg-[#06B94E] rounded-lg md:rounded-2xl text-lg md:text-2xl font-bold">
-                  Quero Participar
+                  Quero Participar.
                 </button>
             </footer>
         </section>

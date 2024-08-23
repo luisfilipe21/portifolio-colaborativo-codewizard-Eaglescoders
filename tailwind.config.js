@@ -1,15 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
+  darkMode:"class",
   theme: {
     extend: {
       fontFamily: {
         zen: ["Zen Dots", "sans-serif"],
         inconsolata: ["Inconsolata", "sans-serif"],
         mulish: ["Mulish", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
       },
       textColor: {
-        gray: ["#B5B3BC"],
+        gray: ["#B5B3BC", "#ebebeb", "#e1e1e1"],
         nameMember: ["#03FCFC"]
       },
       colors: {
@@ -24,6 +26,7 @@ export default {
           3: "#e1e1e1",
           4: "#767676",
           5: "#454343",
+          6: "#CCCCCC"
         },
         white: {
           1: "#ffffff",
@@ -34,6 +37,7 @@ export default {
         },
         blue: {
           1: "#0368ff",
+          2: "#0A1045",
         },
         yellow: {
           1: "#ffb800",
@@ -62,11 +66,36 @@ export default {
         "mobile-ultra": "1.443rem",
         "mobile-hiper": "2.196rem",
       },
+      zIndex: {
+        '0': 0,
+        '1': 10,
+        '2': 20,
+        '3': 30,
+        '4': 40,
+        '5': 50,
+      },
+      rightLane: {
+        '0': 160,
+        '1': 128,
+        '2': 96,
+        '3': 64,
+        '4': 32,
+        '5': 0,
+      },
+      marginRight: {
+        '0': 105,
+        '1': 85,
+        '2': 65,
+        '3': 45,
+        '4': 25,
+        '5': 5,
+      },
       fontSize: {
         sizeParagraph: ["24px"],
         sizeParagraphSm: ["18px"],
         sizeTitle: ["38px"],
         sizeTitleSm: ["38px"],
+
         "desktop-mini": "0.75rem",
         "desktop-extraMini": "0.938rem",
         "desktop-small": "1rem",
@@ -92,39 +121,60 @@ export default {
         "mobile-mega": "2.375rem",
       },
       width: {
-        mini: "24.25rem",
-        small: "13.5rem",
-        medium: "18.625rem",
+        mini: "13.5rem",
+        extraMini: "18.625rem",
+        small: "19.813rem",
+        extraSmall: "20.313rem",
+        medium: "24.25rem",
+        extraMedium: "24.75rem",
         larger: "28.688rem",
+        extraLarger: "29.688rem",
+        hiper: "31.688rem",
+        mega: "32.063rem",
       },
       maxWidth: {
+        min: "18.438rem",
+        small: "24.75rem",
         medium: "51.625rem",
         extraMedium: "74.75rem",
         larger: "75.75rem",
+        extralarger: "51.5rem",
+        hiper: "78.25rem",
       },
       height: {
-        mini: "11.125rem",
-        small: "11.75rem",
+        mini: "8.25rem",
+        extraMini: "11.125rem",
+        small: "11.375rem",
+        extraSmall: "11.75rem",
         medium: "3.063rem",
         extraMedium: "5.063rem",
         larger: "18.125rem",
+        extraLarger: "21.313rem",
       },
       screens: {
         xs: ["360px"],
         md: "826px",
         lg: "1212px",
+        extraLg: "1260px",
       },
       dropShadow: {
         customized: "6px 10px 20px rgba(0, 0, 0, 0.2)",
       },
       gap: {
         small: "1.063rem",
+        medium: "4.125rem",
       },
-      spacing:{
+      spacing: {
         pNegativo: {
-          "as" : "-15px"
-        }
-      }
+          as: "-15px",
+        },
+      },
+      margin: {
+        miniNegativo: "-15px",
+      },
+      boxShadow:{
+        cardShadow: "0px 0px 10px 3px rgba(0,0,0,0.25)"
+      },
     },
   },
   plugins: [],

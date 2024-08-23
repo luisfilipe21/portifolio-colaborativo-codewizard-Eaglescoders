@@ -1,32 +1,42 @@
 import Card from "./card/index";
 
-import Html from "../../assets/html.svg";
-import Css from "../../assets/css.svg";
-import Javascript from "../../assets/javascript.svg";
-import React from "../../assets/react.svg";
-import TailwindCss from "../../assets/tailwind.svg";
-import GitHub from "../../assets/github.svg";
-import Vscode from "../../assets/vscode.svg";
-import Git from "../../assets/git.svg";
+import HtmlIcon from "../../public/html-icon.svg";
+import CssIcon from "../../public/css-icon.svg";
+import JavaScriptIcon from "../../public/javascript-icon.svg";
+import ReactIcon from "../../public/react-icon.svg";
+import TailwindCssIcon from "../../public/tailwind-icon.svg";
+import GitHubIcon from "../../public/github-icon.svg";
+import GitHubIconDark from "../../public/github-icon-black.svg";
+import GitIcon from "../../public/git-icon.svg";
+import VscodeIcon from "../../public/vscode-icon.svg";
+import { useDarkMode } from "../../model/darkMode";
 
 function LingAndTech() {
+  const {darkMode} = useDarkMode();
+
+
   return (
-    <div className="flex flex-col w-full min-h-screen justify-center items-center bg-[#0f0920]">
+    <div className="flex flex-col w-full min-h-screen justify-center items-center  mt-20 mb-10">
       <div className="flex flex-col justify-center items-center pb-8">
-        <h1 className="font-inconsolata text-[22px] md:text-[31px] text-white pb-4">
-          Linguagens e Tecnologias
+        <h1 className="font-inconsolata text-[22px] md:text-[31px] pb-4 dark:text-white-1">
+          Linguagens e Tecnologias Usadas
         </h1>
-        <div className="w-[306px] md:w-[512px] h-[2px] bg-[#EBEBEB]"></div>
+        <div className="w-[306px] md:w-[512px] h-[2px] bg-purple-1 dark:bg-[#EBEBEB]"></div>
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8 px-4">
-        <Card title="Html" src={Html} alt="Html icon" />
-        <Card title="Css" src={Css} alt="Css icon" />
-        <Card title="Javascript" src={Javascript} alt="JavaScript icon" />
-        <Card title="React" src={React} alt="React icon" />
-        <Card title="Tailwind Css" src={TailwindCss} alt="Tailwind icon" />
-        <Card title="GitHub" src={GitHub} alt="GitHub icon" />
-        <Card title="Git" src={Git} alt="Git icon" />
-        <Card title="Vscode" src={Vscode} alt="Vscode icon" />
+        <Card title="Html" src={HtmlIcon} alt="Html icon" />
+        <Card title="Css" src={CssIcon} alt="Css icon" />
+        <Card title="Javascript" src={JavaScriptIcon} alt="JavaScript icon" />
+        <Card title="React" src={ReactIcon} alt="React icon" />
+        <Card title="Tailwind Css" src={TailwindCssIcon} alt="Tailwind icon" />
+        
+        {darkMode ? <Card title="GitHub" src={GitHubIcon} alt="GitHub icon" />
+        :
+        <Card title="GitHub" src={GitHubIconDark} alt="GitHub icon" />
+         }
+        
+        <Card title="Git" src={GitIcon} alt="Git icon" />
+        <Card title="Vscode" src={VscodeIcon} alt="Vscode icon" />
       </div>
     </div>
   );
