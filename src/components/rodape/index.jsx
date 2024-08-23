@@ -2,7 +2,9 @@ import github from "../../public/github.svg";
 import useFetchData from "../../controller/useFetchData";
 
 export const Footer = () => {
-    const { data } = useFetchData('https://sistema-cadastro-dados-portifolio-front-end-fusion.vercel.app/api/EagleCoders');
+  const { data } = useFetchData(
+    import.meta.env.VITE_API_URL_GET_DADOS_CADASTRO
+  );
 
     return (
         <footer className="bg-rodape-0 w-full rounded-t-3xl dark:bg-purple-2 bg-black-1">
