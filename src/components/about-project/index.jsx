@@ -1,5 +1,4 @@
 import { SectionAbout } from "./section-about";
-// after about
 
 
 export function AboutProject(){
@@ -13,29 +12,29 @@ export function AboutProject(){
             title: "O Que Procuramos:",
             content: `Paixão pela programação e desejo de aprender e crescer. Conhecimento básico de CSS, HTML e JavaScript (ou disposição para aprender).
             Capacidade de trabalhar em equipe e colaborar em projetos conjuntos. Comprometimento e vontade de enfrentar desafios e superar obstáculos.`,
-            imgSrc: "/src/assets/img-bag.png",
+            imgSrc: "src/public/img-bag.png",
           },
           {
             title: "Responsabilidades:",
             content: `Participar de desafios e atividades gamificadas para desenvolver habilidades em programação. Colaborar com outros membros da equipe para criar projetos frontend inovadores. Contribuir com ideias e feedback para aprimorar continuamente o projeto.`,
-            imgSrc: "/src/assets/img-target.png",
+            imgSrc: "src/public/img-target.png",
           },
           {
             title: "Benefícios:",
             content: `Acesso a uma comunidade de aprendizado dinâmica e colaborativa. Oportunidade de desenvolver habilidades práticas em programação. Experiência valiosa para enriquecer seu currículo e portfólio. Se você está pronto para embarcar em uma jornada emocionante de aprendizado e crescimento no mundo do desenvolvimento web, junte-se a nós no Frontend Fusion!`,
-            imgSrc: "/src/assets/img-star.png",
+            imgSrc: "src/public/img-star.png",
           },
         ],
       };
 
     return(
         <section className="min-h-screen min-w-screen flex flex-col text-center px-7 md:px-[106px] text-purple-1 dark:text-white-1 gap-11 font-mulish">
-            <header className="w-[81%] mx-auto flex flex-col gap-8 md:gap-20">
+            <div className="w-[81%] mx-auto flex flex-col gap-8 md:gap-20">
                 <h2 className="text-[28px] md:text-5xl md:leading-7 font-bold">{projectDetails.title}</h2>
                 <p className="text-sm md:text-[22px] md:px-5">{projectDetails.description}</p>
-            </header>
+            </div>
 
-            <section className="flex flex-col gap-14">
+            <div className="flex flex-col gap-14">
                 {projectDetails.sections.map((section, index) => (
                   <SectionAbout
                       key={index}
@@ -44,15 +43,15 @@ export function AboutProject(){
                       title={section.title}
                   />
                 ))}
-            </section>
+            </div>
 
-            <footer className="w-[90%] md:w-[65%] flex flex-col items-center justify-center gap-11 mx-auto mt-20 mb-10">
+            <div className="w-[90%] md:w-[65%] flex flex-col items-center justify-center gap-11 mx-auto mt-20 mb-10">
                 <h2 className="text-base md:text-[32px]">Estamos ansiosos para receber sua inscrição e dar as boas-vindas a você em nossa comunidade!</h2>
 
-                <button className="px-9 md:px-12 py-[18px] md:py-4 bg-[#16C586] md:bg-[#06B94E] rounded-lg md:rounded-2xl text-lg md:text-2xl font-bold">
+                <button className="px-9 md:px-12 py-[18px] md:py-4 bg-green-1 md:bg-green-3 rounded-lg md:rounded-2xl text-lg md:text-2xl font-bold">
                   Quero Participar.
                 </button>
-            </footer>
+            </div>
         </section>
     )
 }
