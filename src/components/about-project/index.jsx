@@ -31,7 +31,7 @@ export function AboutProject(){
         <section className="min-h-screen min-w-screen flex flex-col text-center px-7 md:px-[90px] text-purple-1 dark:text-white-1 gap-11 font-mulish">
             <div className="w-[81%] mx-auto flex flex-col gap-8 md:gap-20">
                 <h2 className="text-[28px] md:text-5xl md:leading-10 font-bold">{projectDetails.title}</h2>
-                <p className="text-sizeParagraph md:text-sizeParagraphSm md:px-5">{projectDetails.description}</p>
+                <p className="text-sizeParagraphSm md:text-sizeParagraph md:px-5">{projectDetails.description}</p>
             </div>
 
             <div className="flex flex-col gap-14">

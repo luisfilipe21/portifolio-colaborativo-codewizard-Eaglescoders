@@ -10,12 +10,15 @@ export const Footer = () => {
 
                 <div className="flex flex-col md:flex-row md:mr-4">
                     <div>
-                        <button className="bg-blue-1 text-white-1 w-36 flex items-center text-white gap-1 justify-center p-4 rounded-lg font-inconsolata text-xl">
+                        <button 
+                        className="bg-blue-1 text-white-1 w-36 
+                        flex items-center text-white gap-1 justify-center 
+                        p-4 rounded-lg font-inconsolata text-xl">
                             github <img src={github} alt="Membro da equipegithub" />
                         </button>
                     </div>
                     <div className="flex flex-col my-4 gap-8 md:flex-row md:pl-4 text-white-1">
-                        <nav >
+                        <nav>
                             <ul className="flex flex-col my-4 gap-8 md:flex-row md:pl-4">
                                 <li>
                                     <a href="#" className="text-sizeParagraphSm font-inconsolata text-white ">Sobre</a>
@@ -36,7 +39,8 @@ export const Footer = () => {
 
                 <div className="flex w-24 md:w-full md:justify-end md:max-w-60">
                     <div className="flex h-max box-border gap-8 md:flex-col">
-                        <figure className="flex flex-wrap items-center h-12 relative md:flex-nowrap md:w-full md:max-w-60">
+                        
+                        <figure className="flex flex-wrap items-center md:flex-row-reverse h-12 relative md:flex-nowrap md:w-full md:max-w-60">
 
                             {data?.people.map((integrante, index) =>
                                 <img
@@ -55,7 +59,7 @@ export const Footer = () => {
                             )}
                         </figure>
 
-                        <div className="hidden gap-0.5 md:inline-flex md:flex-col md:max-w-60 justify-center text-white-1">
+                        <div className="hidden gap-0.5 md:flex md:flex-col-reverse  md:max-w-60 justify-center text-white-1">
 
                             {data?.people.map((integrante) =>
                                 <p
