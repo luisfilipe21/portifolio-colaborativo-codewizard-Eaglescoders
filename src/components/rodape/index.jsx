@@ -14,7 +14,7 @@ export const Footer = () => {
                         className="bg-blue-1 text-white-1 w-36 
                         flex items-center text-white gap-1 justify-center 
                         p-4 rounded-lg font-inconsolata text-xl">
-                            github <img src={github} alt="Membro da equipegithub" />
+                            github <img src={github} alt="Github logo" />
                         </button>
                     </div>
                     <div className="flex flex-col my-4 gap-8 md:flex-row md:pl-4 text-white-1">
